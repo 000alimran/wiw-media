@@ -180,11 +180,11 @@ def c_cta(v, c):
             f'<div style="font-size:34px;color:var(--mut);margin-top:6px">{E(v.get("handle", "@wealthinwhispers"))}</div>'
             f'<div style="font-size:40px;font-weight:700;margin-top:30px;text-align:center">{rich(v.get("text", "Business breakdowns, *in under a minute*."))}</div>'
             f'<div class="fbtn" data-at="{tc}" data-anim="press" style="position:relative;margin-top:44px">'
-            f'<span class="f1" {A(t + .3, "fade", .3, f'data-out="{tc}" data-outdur="0.15"')}>+ FOLLOW</span>'
-            f'<span class="f2" {A(tc, "pop", .35)}>✓ FOLLOWING</span></div>'
+            f'<span class="f1" {A(t + .3, "fade", .3, f'data-out="{tc}" data-outdur="0.15"')}>{E(v.get("button", "+ FOLLOW"))}</span>'
+            f'<span class="f2" {A(tc, "pop", .35)}>{E(v.get("button_done", "✓ FOLLOWING"))}</span></div>'
             f'<div style="position:absolute;left:640px;top:600px;z-index:6" {A(t + .45, "cursor", .7)}>'
             f'<svg width="70" height="90" viewBox="0 0 24 30"><path d="M2 2 L2 24 L8 18 L12 28 L16 26 L12 17 L20 17Z" fill="#fff" stroke="#000" stroke-width="1.6"/></svg></div>'
-            f'<div style="margin-top:30px;font-size:30px;color:var(--mut)" {A(tc + .3, "up", .5)}>New breakdown every day · Links in bio</div></div>')
+            f'<div style="margin-top:30px;font-size:30px;color:var(--mut)" {A(tc + .3, "up", .5)}>{E(v.get("foot", "New breakdown every day · Links in bio"))}</div></div>')
 
 
 def c_hero(v, c):
@@ -272,9 +272,31 @@ PARTICLES = "".join(f'<div class="dot" style="left:{_g.randint(0, 1060)}px;top:{
 LOGO = '<div class="logo"><span class="lw">W</span><span class="lt">WEALTH IN<br>WHISPERS</span></div>'
 
 
-def page(th, body, total, eng="../../../engine/engine.js", extra_js=""):
-    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{theme_css(th)}</style></head><body><div id="stage">
-{th['background']}{PARTICLES}<div id="prog"></div>{LOGO}{body}</div>
+LAND_CSS = """html,body{width:1920px;height:1080px}
+.logo{top:40px;right:56px}.logo .lw{font-size:66px}.logo .lt{font-size:23px}
+.kicker{top:50px;left:60px}
+.scene{top:80px;height:780px}
+.cap{top:872px;height:190px;left:200px;right:200px}
+.say{font-size:48px;letter-spacing:-1px}
+.src{bottom:12px;font-size:18px}
+.heroart{left:40px;right:auto;width:980px;top:0;bottom:0;align-items:center}
+.herohead{left:1030px;right:100px;top:230px;bottom:auto;text-align:left}
+.artback{inset:-40px -260px}
+.sweep{width:360px}
+.chap{position:absolute;left:60px;top:44px;font-weight:800;font-size:22px;letter-spacing:5px;color:%(mut)s;z-index:9}
+"""
+
+
+def particles(w):
+    g = _r.Random(7)
+    n = 34 if w < 1500 else 48
+    return "".join(f'<div class="dot" style="left:{g.randint(0, w - 20)}px;top:{g.randint(1900, 2100)}px;width:{g.choice([4, 5, 6, 8])}px;height:{g.choice([4, 5, 6, 8])}px" data-loop="drift" data-spd="{g.uniform(.035, .07):.3f}" data-amp="{g.randint(10, 40)}" data-ph="{g.random():.3f}" data-op="{g.uniform(.25, .6):.2f}"></div>' for _ in range(n))
+
+
+def page(th, body, total, eng="../../../engine/engine.js", extra_js="", land=False):
+    css = theme_css(th) + (LAND_CSS % th if land else "")
+    return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{css}</style></head><body><div id="stage">
+{th['background']}{particles(1920 if land else 1080)}<div id="prog"></div>{LOGO}{body}</div>
 <script>window.TOTAL={total};
 window.ambient=function(t){{const A=document.getElementById('bgA'),B=document.getElementById('bgB'),Cc=document.getElementById('bgC');{th['ambient']}}};{extra_js}</script>
 <script src="{eng}"></script></body></html>"""
@@ -298,10 +320,12 @@ def build(folder):
         body += f'<div class="kicker">{E(spec["kicker"])}</div>'
     caps = ""
     starts = [x["start"] for x in timing["lines"]]
+    scene_starts = []
     for si, sc in enumerate(spec["scenes"]):
         n = len(sc["lines"]); L = starts[i:i + n]
         t0 = max(0, L[0] - .1); i += n
         t1 = (starts[i] - .25) if i < len(starts) else None
+        scene_starts.append(t0)
         c = Ctx(t0, t1, L, th, fx)
         v = sc["visual"]
         inner = COMP[v["type"]](v, c) + (stamp(v["stamp"], c) if v.get("stamp") else "")
@@ -326,7 +350,18 @@ def build(folder):
     body += caps + f'<div class="src">{E(spec.get("source", "Not financial advice"))}</div>'
     import os
     eng = os.path.relpath(pathlib.Path(__file__).resolve().parent.parent / "engine" / "engine.js", folder.resolve())
-    (folder / "video.html").write_text(page(th, body, total, eng))
+    land = spec.get("format") == "landscape"
+    if land:
+        chaps = []
+        for sc, st0 in zip(spec["scenes"], scene_starts):
+            if sc.get("chapter"):
+                t = 0 if not chaps else int(st0)
+                chaps.append(f"{t // 60}:{t % 60:02d} {sc['chapter']}")
+                body += f'<div class="chap" data-at="{st0:.3f}" data-anim="fade" data-dur="0.4"' + (f' data-out="{nxt:.3f}"' if (nxt := next((x for c2, x in zip(spec["scenes"], scene_starts) if c2.get("chapter") and x > st0), None)) else "") + f'>{E(sc["chapter"]).upper()}</div>'
+        (folder / "chapters.txt").write_text("\n".join(chaps) + "\n")
+        timing["w"], timing["h"] = 1920, 1080
+        (folder / "timing.json").write_text(json.dumps(timing, indent=1))
+    (folder / "video.html").write_text(page(th, body, total, eng, land=land))
     (folder / "fx.json").write_text(json.dumps(fx))
     # cover / thumbnail
     cv = spec.get("cover", {})

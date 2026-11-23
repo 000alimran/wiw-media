@@ -11,11 +11,12 @@ FPS = 30
 
 async def run(folder, preview=None):
     folder = pathlib.Path(folder).resolve()
-    total = json.loads((folder / "timing.json").read_text())["duration"]
+    tj = json.loads((folder / "timing.json").read_text())
+    total, W, H = tj["duration"], tj.get("w", 1080), tj.get("h", 1920)
     exe = os.environ.get("CHROME_PATH")
     async with async_playwright() as p:
         b = await p.chromium.launch(**({"executable_path": exe} if exe else {}), args=["--disable-gpu"])
-        pg = await b.new_page(viewport={"width": 1080, "height": 1920})
+        pg = await b.new_page(viewport={"width": W, "height": H})
         # cover
         await pg.goto((folder / "cover.html").as_uri()); await pg.wait_for_function("window.READY===true")
         await pg.evaluate("document.fonts.ready"); await pg.evaluate("render(5)")
