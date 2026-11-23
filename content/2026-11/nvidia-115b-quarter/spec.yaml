@@ -1,0 +1,37 @@
+slug: nvidia-115b-quarter
+theme: cream
+publish: review
+title: "Nvidia Made $115.8 Billion in 3 Months. 93% From One Thing."
+source: "Source: NVIDIA Q3 FY2027 results (Nov 17, 2026) · Not financial advice"
+hashtags: [Nvidia, NVDA, AIstocks, Earnings, Investing, StockMarket]
+cover: {line1: "$115.8B", line2: "IN 3 MONTHS", line3: "Nvidia Q3 FY2027", tone: good}
+caption:
+  long: |
+    Nvidia made $115.8 billion in three months, up 103% from a year ago.
+
+    $107.6B of it came from data centers, roughly 93% of the total (our math). Gaming, PCs, cars and robots combined: $8.2B.
+
+    Gross margin was 74.8%. Next quarter's guidance: $130B, assuming no China data center compute revenue.
+
+    Source: NVIDIA Q3 FY2027 results. For education only, not financial advice.
+  short: "Nvidia made $115.8B in 3 months. 93% came from one business. Not financial advice."
+scenes:
+  - lines: [{show: "Nvidia just made *$115.8 billion* in three months.", say: "Nvidia just made one hundred fifteen point eight billion dollars, in three months."}]
+    visual: {type: bignum, label: "Revenue · Q3 fiscal 2027", value: 115.8, prefix: "$", suffix: "B", decimals: 1, tone: good, note: "Quarter ended Oct 25, 2026"}
+  - lines: [{show: "That's more than double a year ago.", say: "That's more than double a year ago."}]
+    visual: {type: bars, label: "Quarterly revenue", items: [{name: "Q3 FY26", value: 57.0, display: "$57.0B", tone: mut, at: 0}, {name: "Q3 FY27", value: 115.8, display: "$115.8B", tone: good, at: "+0.8"}]}
+  - lines: ["But here's what most people miss."]
+    visual: {type: title, kicker: "The part", text: "MOST PEOPLE MISS", size: 150}
+  - lines: [{show: "*$107.6 billion* came from one business: data centers.", say: "One hundred seven point six billion dollars came from one business. Data centers."},
+            {show: "That's about *93%* of everything Nvidia sells.", say: "That's about ninety-three percent of everything Nvidia sells."}]
+    visual: {type: split, label: "Where the $115.8B came from", parts: [{value: 107.6, display: "$107.6B", name: "data center", tone: good}, {value: 8.2, display: "$8.2B", name: "everything else", hatch: true}],
+             stamp: {text: "≈ 93%", at: 1, top: 330, side: left, x: 260, rot: -6}}
+  - lines: [{show: "Gaming, PCs, cars and robots combined? Just *$8.2 billion*.", say: "Gaming, PCs, cars and robots, combined? Just eight point two billion."}]
+    visual: {type: statement, items: [{text: "Gaming + PCs + cars + robots", size: 62, tone: mut, anim: up}, {text: "$8.2B", size: 200, tone: bad, at: "+1.4"}]}
+  - lines: [{show: "And about *75 cents* of every sales dollar is gross profit.", say: "And about seventy-five cents of every sales dollar is gross profit."}]
+    visual: {type: gauge, label: "Gross margin", from: 0, to: 75, suffix: "%", at: "+0.6", note: "GAAP gross margin 74.8%"}
+  - lines: [{show: "Next quarter, Nvidia expects *$130 billion*.", say: "Next quarter, Nvidia expects one hundred thirty billion dollars."},
+            {show: "Without counting a single dollar of China data center sales.", say: "Without counting a single dollar of China data center sales."}]
+    visual: {type: bignum, label: "Q4 FY2027 guidance", value: 130, prefix: "$", suffix: "B", tone: good, note: "Assumes no China data center compute revenue", note_at: 1}
+  - lines: ["Follow for more quiet breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}
