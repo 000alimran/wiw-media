@@ -47,7 +47,7 @@ jobs:
           for d in ${{ steps.find.outputs.list }}; do
             echo "::group::$d"
             if [ ! -f "$d/voice.mp3" ]; then
-              if [ -n "$ELEVENLABS_API_KEY" ]; then python tools/voice.py "$d" --tts; else python tools/voice.py "$d"; echo "no voice.mp3 yet - skipped"; continue; fi
+              if [ -n "$ELEVENLABS_API_KEY" ]; then python tools/voice.py "$d" --tts || { echo "voice skipped"; continue; }; else python tools/voice.py "$d"; echo "no voice.mp3 yet - skipped"; continue; fi
             fi
             python tools/build.py "$d"
             python tools/render.py "$d"
