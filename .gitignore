@@ -7,3 +7,7 @@
 __pycache__/
 examples/**/voice.mp3
 examples/**/timing.json
+**/bed.wav
+**/sfx.wav
+**/fx.json
+**/video.part2.mp4

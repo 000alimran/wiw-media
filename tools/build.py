@@ -6,6 +6,7 @@ import sys, json, re, html, pathlib, yaml
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from themes import THEMES
 from align import align
+from art import ART
 
 E = html.escape
 
@@ -23,8 +24,8 @@ def tone(t, th):
 
 
 class Ctx:
-    def __init__(s, t0, t1, L, th):
-        s.t0, s.t1, s.L, s.th = t0, t1, L, th
+    def __init__(s, t0, t1, L, th, fx=None):
+        s.t0, s.t1, s.L, s.th, s.fx = t0, t1, L, th, fx
 
     def at(s, v, default):
         """int -> start of that line in the scene; '+1.2' -> seconds after scene start."""
@@ -171,12 +172,41 @@ def c_checklist(v, c):
 
 
 def c_cta(v, c):
-    return (f'<div class="lbl">{E(v.get("kicker", "Full breakdown"))}</div>'
-            f'<div class="disp" style="font-size:{v.get("size", 120)}px;line-height:1.02;margin-top:24px;text-align:center">{rich(v.get("text", "on the channel →"))}</div>'
-            f'<div style="margin-top:50px" {A(c.t0 + .4, "pop")}><span class="chip">{E(v.get("handle", "@wealthinwhispers"))}</span></div>')
+    t = c.t0; tc = t + 1.15
+    c.fx["pops"].append(round(tc, 2))
+    return (f'<div class="ctabox" {A(t + .05, "pop", .6)}>'
+            f'<div class="avatar"><span class="lw">W</span></div>'
+            f'<div class="disp" style="font-size:64px;margin-top:26px;letter-spacing:1px">WEALTH IN WHISPERS</div>'
+            f'<div style="font-size:34px;color:var(--mut);margin-top:6px">{E(v.get("handle", "@wealthinwhispers"))}</div>'
+            f'<div style="font-size:40px;font-weight:700;margin-top:30px;text-align:center">{rich(v.get("text", "Business breakdowns, *in under a minute*."))}</div>'
+            f'<div class="fbtn" data-at="{tc}" data-anim="press" style="position:relative;margin-top:44px">'
+            f'<span class="f1" {A(t + .3, "fade", .3, f'data-out="{tc}" data-outdur="0.15"')}>+ FOLLOW</span>'
+            f'<span class="f2" {A(tc, "pop", .35)}>✓ FOLLOWING</span></div>'
+            f'<div style="position:absolute;left:640px;top:600px;z-index:6" {A(t + .45, "cursor", .7)}>'
+            f'<svg width="70" height="90" viewBox="0 0 24 30"><path d="M2 2 L2 24 L8 18 L12 28 L16 26 L12 17 L20 17Z" fill="#fff" stroke="#000" stroke-width="1.6"/></svg></div>'
+            f'<div style="margin-top:30px;font-size:30px;color:var(--mut)" {A(tc + .3, "up", .5)}>New breakdown every day · Links in bio</div></div>')
 
 
-COMP = dict(bignum=c_bignum, title=c_title, bars=c_bars, split=c_split, flow=c_flow, compare=c_compare,
+def c_hero(v, c):
+    T = lambda x: c.at(x, 0)
+    art = ART[v["art"]](T, v)
+    out = f'<div class="heroart" style="top:{v.get("art_top", 0)}px">{art}</div>'
+    if v.get("head"):
+        ht = c.at(v.get("head_at"), "+.35")
+        out += f'<div class="herohead disp" style="font-size:{v.get("size", 92)}px;color:{tone(v.get("tone", "ink"), c.th)}" {A(ht, "up", .6)}>{rich(v["head"])}</div>'
+        if v.get("hit_head"):
+            c.fx["hits"].append(ht)
+    for b in v.get("badges", []):
+        bt = c.at(b.get("at"), "+.9")
+        c.fx["pops"].append(bt)
+        out += (f'<div class="badge" style="left:{b.get("x", 60)}px;top:{b.get("y", 60)}px" {A(bt, "pop", .45)}>'
+                f'<i style="background:{tone(b.get("tone", "good"), c.th)}"></i>{rich(b["text"])}</div>')
+    for h in v.get("hits", []):
+        c.fx["hits"].append(c.at(h, 0))
+    return out
+
+
+COMP = dict(hero=c_hero, bignum=c_bignum, title=c_title, bars=c_bars, split=c_split, flow=c_flow, compare=c_compare,
             statement=c_statement, gauge=c_gauge, checklist=c_checklist, cta=c_cta)
 
 
@@ -209,6 +239,21 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:%(bg)s;font-fami
 .stamp{border:6px solid %(good)s;color:%(good)s;background:%(bg)s;font-family:Anton;font-size:90px;padding:4px 28px;border-radius:16px;white-space:nowrap}
 .src{position:absolute;bottom:330px;left:0;right:0;text-align:center;font-size:24px;color:%(src)s;letter-spacing:1px}
 em{font-style:normal;%(emcss)s} em.b{%(em2css)s}
+:root{--bg:%(bg)s;--ink:%(ink)s;--mut:%(mut)s;--good:%(good)s;--bad:%(bad)s;--card:%(card)s;--card2:%(card2)s;--edge:%(edge)s}
+svg [data-anim],svg [data-loop]{transform-box:fill-box;transform-origin:center}
+.push{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.heroart{position:absolute;left:0;right:0;display:flex;justify-content:center}
+.herohead{position:absolute;left:60px;right:60px;bottom:10px;text-align:center;line-height:1.02;text-shadow:0 10px 40px rgba(0,0,0,.35)}
+.badge{position:absolute;display:flex;align-items:center;gap:14px;padding:16px 28px;border-radius:999px;background:var(--card2);border:2px solid var(--edge);font-weight:800;font-size:36px;box-shadow:0 20px 50px rgba(0,0,0,.3);z-index:4}
+.badge i{width:16px;height:16px;border-radius:50%%}
+.artback{position:absolute;inset:-80px;display:flex;align-items:center;justify-content:center;opacity:.16;z-index:0}
+.sweep{position:absolute;top:-200px;left:0;width:260px;height:2400px;background:linear-gradient(90deg,transparent,%(accent)s55,#ffffffaa,%(accent)s55,transparent);z-index:8;mix-blend-mode:screen}
+.ctabox{display:flex;flex-direction:column;align-items:center;position:relative}
+.avatar{width:230px;height:230px;border-radius:50%%;background:%(bg)s;border:8px solid %(logo)s;display:flex;align-items:center;justify-content:center;box-shadow:0 0 90px %(logo)s66}
+.avatar .lw{font-family:Anton;font-size:150px;color:%(logo)s;transform:skewX(-10deg);line-height:1}
+.fbtn{width:560px;height:124px;border-radius:999px;background:%(bad)s;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 60px %(bad)s66}
+.fbtn span{position:absolute;font-weight:900;font-size:50px;letter-spacing:2px;color:#fff}
+.dot{position:absolute;border-radius:50%%;background:%(accent)s}
 """
 
 
@@ -221,12 +266,15 @@ def theme_css(th):
     return CSS % dict(th, emcss=emcss, em2css=em2)
 
 
+import random as _r
+_g = _r.Random(7)
+PARTICLES = "".join(f'<div class="dot" style="left:{_g.randint(0, 1060)}px;top:{_g.randint(1900, 2100)}px;width:{_g.choice([4, 5, 6, 8])}px;height:{_g.choice([4, 5, 6, 8])}px" data-loop="drift" data-spd="{_g.uniform(.035, .07):.3f}" data-amp="{_g.randint(10, 40)}" data-ph="{_g.random():.3f}" data-op="{_g.uniform(.25, .6):.2f}"></div>' for _ in range(34))
 LOGO = '<div class="logo"><span class="lw">W</span><span class="lt">WEALTH IN<br>WHISPERS</span></div>'
 
 
 def page(th, body, total, eng="../../../engine/engine.js", extra_js=""):
     return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>{theme_css(th)}</style></head><body><div id="stage">
-{th['background']}<div id="prog"></div>{LOGO}{body}</div>
+{th['background']}{PARTICLES}<div id="prog"></div>{LOGO}{body}</div>
 <script>window.TOTAL={total};
 window.ambient=function(t){{const A=document.getElementById('bgA'),B=document.getElementById('bgB'),Cc=document.getElementById('bgC');{th['ambient']}}};{extra_js}</script>
 <script src="{eng}"></script></body></html>"""
@@ -239,9 +287,13 @@ def build(folder):
     norm = [l if isinstance(l, dict) else {"show": l, "say": re.sub(r"[*~]", "", l)} for s in spec["scenes"] for l in s["lines"]]
     lines = [l["show"] for l in norm]
     timing = align(folder / "voice.mp3", [l["say"] for l in norm])
+    if spec.get("starts"):
+        st = spec["starts"]; dur = timing["duration"]
+        timing["lines"] = [{"start": st[k], "end": round((st[k + 1] - .3) if k + 1 < len(st) else dur - .2, 3)} for k in range(len(st))]
     (folder / "timing.json").write_text(json.dumps(timing, indent=1))
     total = timing["duration"]
     body, i = "", 0
+    fx = {"whoosh": [], "hits": [], "pops": [], "music": spec.get("music", "tech")}
     if spec.get("kicker"):
         body += f'<div class="kicker">{E(spec["kicker"])}</div>'
     caps = ""
@@ -250,11 +302,22 @@ def build(folder):
         n = len(sc["lines"]); L = starts[i:i + n]
         t0 = max(0, L[0] - .1); i += n
         t1 = (starts[i] - .25) if i < len(starts) else None
-        c = Ctx(t0, t1, L, th)
+        c = Ctx(t0, t1, L, th, fx)
         v = sc["visual"]
         inner = COMP[v["type"]](v, c) + (stamp(v["stamp"], c) if v.get("stamp") else "")
-        out = f' data-out="{t1}"' if t1 else ""
-        body += f'<div class="scene" data-at="{t0}" data-anim="fade" data-dur="0.01"{out}>{inner}</div>\n'
+        if v.get("stamp"):
+            fx["hits"].append(c.at(v["stamp"].get("at"), "+1.5"))
+        if v["type"] == "bignum":
+            fx["hits"].append(round(c.t0 + .3, 2))
+        if v.get("art") and v["type"] != "hero":
+            ab = dict(v["art"]) if isinstance(v["art"], dict) else {"name": v["art"]}
+            ab.setdefault("w", 1000)
+            inner = f'<div class="artback">{ART[ab["name"]](lambda x: c.at(x, 0), ab)}</div>' + inner
+        out = f' data-out="{t1}" data-outmode="zoom" data-outdur="0.35"' if t1 else ""
+        if si > 0:
+            body += f'<div class="sweep" data-at="{max(0, t0 - .25):.3f}" data-anim="sweep" data-dur="0.55"></div>'
+            fx["whoosh"].append(round(max(0, t0 - .3), 2))
+        body += f'<div class="scene" data-at="{t0}" data-anim="enter" data-dur="0.55"{out}><div class="push" data-push="{t0},{t1 or total}">{inner}</div></div>\n'
     for k, ln in enumerate(timing["lines"]):
         nxt = timing["lines"][k + 1]["start"] - .12 if k + 1 < len(timing["lines"]) else None
         out = f' data-out="{nxt}" data-outdur="0.25"' if nxt else ""
@@ -264,6 +327,7 @@ def build(folder):
     import os
     eng = os.path.relpath(pathlib.Path(__file__).resolve().parent.parent / "engine" / "engine.js", folder.resolve())
     (folder / "video.html").write_text(page(th, body, total, eng))
+    (folder / "fx.json").write_text(json.dumps(fx))
     # cover / thumbnail
     cv = spec.get("cover", {})
     cover = (f'<div class="scene" style="top:300px;height:900px">'

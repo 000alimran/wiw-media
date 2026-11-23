@@ -4,6 +4,7 @@ Usage: python tools/render.py content/2026-11/<slug> [--preview 3.5,12,30]
 """
 import sys, os, asyncio, subprocess, pathlib, json
 from playwright.async_api import async_playwright
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
 
 FPS = 30
 
@@ -28,9 +29,8 @@ async def run(folder, preview=None):
             await b.close(); return
         tmp = folder / "video.part.mp4"
         ff = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "image2pipe", "-framerate", str(FPS), "-c:v", "mjpeg", "-i", "-",
-                               "-i", str(folder / "voice.mp3"), "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-preset", "veryfast",
-                               "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-shortest",
-                               "-movflags", "+faststart", str(tmp)], stdin=subprocess.PIPE)
+                               "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", "-r", str(FPS),
+                               str(tmp)], stdin=subprocess.PIPE)
         n = int(total * FPS)
         for i in range(n):
             await pg.evaluate(f"render({i / FPS:.4f})")
@@ -41,8 +41,26 @@ async def run(folder, preview=None):
     ff.stdin.close()
     if ff.wait() != 0:
         sys.exit("ffmpeg failed")
-    os.replace(tmp, folder / "video.mp4")
+    mix_audio(folder, total, tmp)
     print("rendered", folder / "video.mp4")
+
+
+def mix_audio(folder, total, video):
+    """voice + generated music bed (ducked under the voice) + whoosh/impact/pop effects -> video.mp4"""
+    import music
+    fx = json.loads((folder / "fx.json").read_text()) if (folder / "fx.json").exists() else {}
+    music.write_wav(str(folder / "bed.wav"), music.make_bed(fx.get("music", "tech"), total))
+    music.write_wav(str(folder / "sfx.wav"), music.make_fx(fx, total))
+    out = folder / "video.part2.mp4"
+    flt = ("[1:a]aresample=44100,aformat=channel_layouts=stereo,asplit=2[v1][vsc];[2:a]volume=0.085[m];"
+           "[m][vsc]sidechaincompress=threshold=0.02:ratio=4:attack=15:release=500[md];[3:a]volume=0.28[f];"
+           "[v1][md][f]amix=inputs=3:normalize=0:duration=first,loudnorm=I=-14:TP=-1.5:LRA=11[a]")
+    r = subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(video), "-i", str(folder / "voice.mp3"), "-i", str(folder / "bed.wav"),
+                        "-i", str(folder / "sfx.wav"), "-filter_complex", flt, "-map", "0:v", "-map", "[a]", "-c:v", "copy",
+                        "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", "-movflags", "+faststart", str(out)])
+    if r.returncode != 0:
+        sys.exit("audio mix failed")
+    os.replace(out, folder / "video.mp4"); os.remove(video)
 
 
 if __name__ == "__main__":

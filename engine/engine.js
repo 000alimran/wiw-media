@@ -61,6 +61,10 @@
         case 'right': { const e = Ez.quint(p); tf = `translateX(${(1 - e) * 140}px)`; op *= C(p * 1.6); bl = (1 - e) * 12; break; }
         case 'zoom': { const e = Ez.quint(p); tf = `scale(${1.25 - 0.25 * e})`; op *= C(p * 1.6); bl = (1 - e) * 20; break; }
         case 'fade': op *= Ez.cubic(p); break;
+        case 'enter': { const e = Ez.quint(p); tf = `scale(${1.14 - 0.14 * e})`; op *= C(p * 2); bl = (1 - e) * 22; break; }
+        case 'sweep': { const e = Ez.inout(p); tf = `translateX(${-1700 + 3400 * e}px) skewX(-18deg)`; op = (t < at || p >= 1) ? 0 : 1; break; }
+        case 'cursor': { const e = Ez.inout(p); tf = `translate(${(1 - e) * 280}px,${(1 - e) * 340}px)`; op = t < at ? 0 : C(p * 4); break; }
+        case 'press': { const q = C((t - at) / 0.25); tf = `scale(${1 - 0.08 * Math.sin(Math.PI * q)})`; op = 1; break; }
         case 'wipe': { const e = Ez.inout(p); extra = () => { el.style.clipPath = `inset(0 ${(1 - e) * 100}% 0 0)`; }; op = t < at ? 0 : 1; break; }
         case 'growx': { const e = Ez.expo(p); tf = `scaleX(${Math.max(0.0001, e)})`; op = t < at ? 0 : 1; break; }
         case 'growy': { const e = Ez.expo(p); tf = `scaleY(${Math.max(0.0001, e)})`; op = t < at ? 0 : 1; break; }
@@ -85,6 +89,30 @@
     document.querySelectorAll('[data-rot]').forEach(el => {
       const d = el.dataset, p = C((t - +d.rat) / +(d.rdur || 1.4)), e = Ez.inout(p);
       el.style.transform = `rotate(${+d.rfrom + (+d.rot - +d.rfrom) * e}deg)`;
+    });
+    document.querySelectorAll('[data-loop]').forEach(el => {
+      const d = el.dataset, k = d.loop, ph = +(d.ph || 0), a = +(d.amp || 10), s = +(d.spd || 1);
+      const w = Math.sin(2 * Math.PI * (t * s + ph));
+      let tf = '', op = null;
+      switch (k) {
+        case 'float': tf = `translateY(${w * a}px)`; break;
+        case 'sway': tf = `rotate(${w * a}deg)`; break;
+        case 'spin': tf = `rotate(${(t * s + ph) * 360}deg)`; break;
+        case 'pulse': tf = `scale(${1 + (0.5 + 0.5 * w) * a})`; op = 1 - (0.5 + 0.5 * w); break;
+        case 'blink': op = 0.25 + 0.75 * C(w * 3 + 0.5); break;
+        case 'glow': op = 0.55 + 0.45 * w; break;
+        case 'flicker': { const n = Math.sin(t * 29 * s + ph * 7) * 0.6 + Math.sin(t * 13 * s + ph * 3) * 0.4; tf = `scaleY(${1 + n * a}) scaleX(${1 - n * a * 0.3})`; break; }
+        case 'fall': case 'rise': {
+          const r = +(d.range || 300), q = (((t * s + ph) % 1) + 1) % 1;
+          tf = `translate(${(+d.dx || 0) * q}px,${(k === 'fall' ? 1 : -1) * q * r}px)`; op = Math.sin(Math.PI * q); break; }
+        case 'drift': { const q = (((t * s + ph) % 1) + 1) % 1; tf = `translate(${w * a}px,${-q * 2100}px)`; op = Math.sin(Math.PI * q) * +(d.op || 0.5); break; }
+      }
+      el.style.transform = tf; if (op !== null) el.style.opacity = op.toFixed(3);
+    });
+    document.querySelectorAll('[data-push]').forEach(el => {
+      const [a0, a1] = el.dataset.push.split(',').map(Number);
+      const q = C((t - a0) / Math.max(0.1, a1 - a0));
+      el.style.transform = `scale(${1 + 0.06 * q})`;
     });
     const pr = document.getElementById('prog'); if (pr) pr.style.transform = `scaleX(${C(t / window.TOTAL)})`;
     if (window.ambient) window.ambient(t);

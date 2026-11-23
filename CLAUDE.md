@@ -37,6 +37,13 @@ scenes:                          # each scene = 1 visual held while its lines ar
 ```
 `at`: integer = start of that line within the scene (0-based); "+1.5" = seconds after scene start.
 
+Style v2 (default): prefer `hero` scenes (animated illustration + short headline + badges) alternating with data scenes;
+headlines must NOT repeat the caption word for word. Any visual can take `art: {name: ...}` as a faint backdrop.
+Spec extras: `music: tech|tense|epic` (generated bed, ducked under voice; whoosh/impact/pop SFX automatic);
+`starts: [..]` per-line start seconds if auto alignment is off (check with ffmpeg silencedetect).
+- `hero`: art, w, head, size, tone, head_at, hit_head, hits[at], badges[{text,x,y,tone,at}] + art params
+  art: gpu, servers, devices, cash, globe(pins[[x,y,tone]], pin_at, lock, lock_at), bucket, store(close_at),
+  document(doc_title, doc_stamp, stamp_size, stamp_at, gavel, gavel_at), rocket, orbit, people(n, old), burn, chart_up, cashflow(nodes)
 Visual types:
 - `bignum`: label, value, prefix, suffix, decimals, sep (thousands commas), tone, note, size
 - `title`: kicker, text, size, underline (bool), sub

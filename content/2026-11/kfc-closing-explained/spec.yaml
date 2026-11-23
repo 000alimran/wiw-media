@@ -1,36 +1,222 @@
 slug: kfc-closing-explained
 theme: dark
 publish: review
-title: "Why KFC Restaurants Are Closing (It's Not What You Think)"
-source: "Sources: court filings via ABC7, FOX 5 DC, Nation's Restaurant News, Complex · Not financial advice"
-hashtags: [KFC, Business, Franchise, FastFood, BusinessBreakdown, YumBrands]
-cover: {line1: "KFC", line2: "ISN'T DYING", line3: "It's moving", tone: bad}
+title: Why KFC Restaurants Are Closing (It's Not What You Think)
+source: 'Sources: court filings via ABC7, FOX 5 DC, Nation''s Restaurant News, Complex · Not financial advice'
+hashtags:
+- KFC
+- Business
+- Franchise
+- FastFood
+- BusinessBreakdown
+- YumBrands
+cover:
+  line1: KFC
+  line2: ISN'T DYING
+  line3: It's moving
+  tone: bad
 caption:
-  long: |
-    KFC restaurants are closing across America, but KFC itself isn't bankrupt. A franchisee is.
+  long: 'KFC restaurants are closing across America, but KFC itself isn''t bankrupt. A franchisee is.
 
-    Tasty Chick'n ran 75 KFCs plus 9 KFC/Taco Bell restaurants in 10 states. It largely stopped paying royalties to Yum Brands in November 2025 and owed about $15.7M when it filed for Chapter 11 on Nov 16, 2026. In Puerto Rico, about 80 KFCs closed temporarily after Yum ended its deal with another operator.
+
+    Tasty Chick''n ran 75 KFCs plus 9 KFC/Taco Bell restaurants in 10 states. It largely stopped paying royalties to Yum Brands in November 2025 and owed about $15.7M when it filed for Chapter 11 on Nov
+    16, 2026. In Puerto Rico, about 80 KFCs closed temporarily after Yum ended its deal with another operator.
+
 
     Zoom out: KFC closed 161 US restaurants in 2025 while adding 2,971 internationally.
 
+
     For education only, not financial advice.
-  short: "KFC isn't going bankrupt. A franchisee is. And KFC is opening thousands of stores overseas."
+
+    '
+  short: KFC isn't going bankrupt. A franchisee is. And KFC is opening thousands of stores overseas.
 scenes:
-  - lines: ["KFC restaurants are closing across America."]
-    visual: {type: title, kicker: "Breaking down", text: "KFC IS CLOSING", size: 170, underline: true}
-  - lines: ["But KFC isn't going bankrupt.", "A ~franchisee~ is."]
-    visual: {type: statement, items: [{text: "KFC bankrupt?", size: 110, tone: mut, strike: true, anim: up}, {text: "A *franchisee* is.", size: 120, at: 1}]}
-  - lines: [{show: "Tasty Chick'n ran *84* KFC and KFC–Taco Bell restaurants in 10 states.", say: "Tasty Chick'n ran eighty-four KFC and KFC Taco Bell restaurants, in ten states."}]
-    visual: {type: bignum, label: "Restaurants run by one franchisee", value: 84, tone: good, note: "75 KFC + 9 KFC/Taco Bell · 10 states"}
-  - lines: [{show: "It stopped paying royalties to KFC's owner, Yum Brands, in November 2025.", say: "It stopped paying royalties to KFC's owner, Yum Brands, back in November twenty twenty-five."},
-            {show: "By the bankruptcy filing, it owed about *$15.7 million*.", say: "By the time it filed for bankruptcy, it owed about fifteen point seven million dollars."}]
-    visual: {type: bignum, label: "Unpaid franchise obligations", value: 15.7, prefix: "$", suffix: "M", decimals: 1, tone: bad, note: "Chapter 11 filed Nov 16, 2026", note_at: 1}
-  - lines: [{show: "Weeks earlier, about *80* KFCs in Puerto Rico shut, after Yum cut ties with another operator.", say: "Weeks earlier, about eighty KFCs in Puerto Rico shut, after Yum cut ties with another operator."}]
-    visual: {type: flow, items: [{icon: "1", title: "Nov 2 · Puerto Rico", sub: "~80 KFCs close temporarily", tone: bad}, {icon: "2", title: "Nov 16 · Tasty Chick'n", sub: "Chapter 11 · 84 restaurants", tone: bad}]}
-  - lines: [{show: "Zoom out: KFC closed *161* US restaurants in 2025...", say: "Zoom out. KFC closed one hundred sixty-one US restaurants in twenty twenty-five."},
-            {show: "...and opened *2,971* overseas.", say: "And opened two thousand nine hundred seventy-one overseas."}]
-    visual: {type: bars, label: "KFC restaurants, 2025", items: [{name: "US closed", value: -161, display: "–161", tone: bad, at: 0}, {name: "Added abroad", value: 2971, display: "+2,971", tone: good, at: 1}]}
-  - lines: ["KFC isn't shrinking. It's *moving*."]
-    visual: {type: statement, items: [{text: "Not shrinking.", size: 110, tone: mut, anim: up}, {text: "*Moving.*", size: 180, at: "+1.0"}]}
-  - lines: ["Follow for more quiet breakdowns."]
-    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}
+- lines:
+  - KFC restaurants are closing across America.
+  visual:
+    type: hero
+    art: store
+    w: 640
+    close_at: '+0.6'
+    head: One store after ~another~
+    size: 110
+    head_at: '+0.3'
+    hits:
+    - '+1.5'
+- lines:
+  - But KFC isn't going bankrupt.
+  - A ~franchisee~ is.
+  visual:
+    type: statement
+    art:
+      name: document
+    items:
+    - text: KFC bankrupt?
+      size: 110
+      tone: mut
+      strike: true
+      strike_at: '+1.4'
+      anim: up
+    - text: A *franchisee* is.
+      size: 120
+      at: 1
+- lines:
+  - show: Tasty Chick'n ran *84* KFC and KFC–Taco Bell restaurants in 10 states.
+    say: Tasty Chick'n ran eighty-four KFC and KFC Taco Bell restaurants, in ten states.
+  visual:
+    type: hero
+    art: bucket
+    w: 520
+    head: '*84* restaurants · one franchisee'
+    size: 80
+    head_at: '+1.6'
+    hit_head: true
+    badges:
+    - text: Tasty Chick'n
+      x: 40
+      y: 40
+      tone: bad
+      at: '+0.5'
+    - text: 75 KFC
+      x: 760
+      y: 120
+      tone: good
+      at: '+1.6'
+    - text: 9 KFC/Taco Bell
+      x: 40
+      y: 330
+      tone: good
+      at: '+2.2'
+    - text: 10 states
+      x: 760
+      y: 400
+      tone: good
+      at: '+2.8'
+- lines:
+  - show: It stopped paying royalties to KFC's owner, Yum Brands, in November 2025.
+    say: It stopped paying royalties to KFC's owner, Yum Brands, back in November twenty twenty-five.
+  visual:
+    type: hero
+    art: document
+    w: 560
+    doc_title: ROYALTIES
+    doc_stamp: UNPAID
+    stamp_at: '+2.6'
+    head: Stopped paying Yum! Brands
+    size: 78
+    head_at: '+0.8'
+    hits:
+    - '+2.6'
+    badges:
+    - text: Since Nov 2025
+      x: 720
+      y: 90
+      tone: bad
+      at: '+3.4'
+- lines:
+  - show: By the bankruptcy filing, it owed about *$15.7 million*.
+    say: By the time it filed for bankruptcy, it owed about fifteen point seven million dollars.
+  visual:
+    type: hero
+    art: document
+    w: 540
+    doc_title: COURT FILING
+    gavel: true
+    gavel_at: '+1.4'
+    doc_stamp: CHAPTER 11
+    stamp_size: 40
+    stamp_at: '+1.6'
+    head: Owed ≈ ~$15.7M~
+    size: 100
+    head_at: '+2.6'
+    hits:
+    - '+1.6'
+    badges:
+    - text: Filed Nov 16, 2026
+      x: 40
+      y: 60
+      tone: bad
+      at: '+0.6'
+- lines:
+  - show: Weeks earlier, about *80* KFCs in Puerto Rico shut, after Yum cut ties with another operator.
+    say: Weeks earlier, about eighty KFCs in Puerto Rico shut, after Yum cut ties with another operator.
+  visual:
+    type: flow
+    items:
+    - icon: '1'
+      title: Nov 2 · Puerto Rico
+      sub: ~80 KFCs close temporarily
+      tone: bad
+    - icon: '2'
+      title: Nov 16 · Tasty Chick'n
+      sub: Chapter 11 · 84 restaurants
+      tone: bad
+      at: '+4.0'
+- lines:
+  - show: 'Zoom out: KFC closed *161* US restaurants in 2025...'
+    say: Zoom out. KFC closed one hundred sixty-one US restaurants in twenty twenty-five.
+  - show: '...and opened *2,971* overseas.'
+    say: And opened two thousand nine hundred seventy-one overseas.
+  visual:
+    type: hero
+    art: globe
+    w: 600
+    pin_at: 1
+    pins:
+    - - 160
+      - 260
+      - good
+    - - 230
+      - 330
+      - good
+    - - 330
+      - 250
+      - good
+    - - 400
+      - 310
+      - good
+    - - 440
+      - 230
+      - good
+    - - 360
+      - 380
+      - good
+    - - 280
+      - 410
+      - good
+    - - 470
+      - 360
+      - good
+    badges:
+    - text: 'US: –161 closed (2025)'
+      x: 40
+      y: 20
+      tone: bad
+      at: 0
+    - text: 'Abroad: +2,971 opened'
+      x: 360
+      y: 560
+      tone: good
+      at: 1
+    hits:
+    - 1
+- lines:
+  - KFC isn't shrinking. It's *moving*.
+  visual:
+    type: statement
+    art:
+      name: chart_up
+    items:
+    - text: Not shrinking.
+      size: 110
+      tone: mut
+      anim: up
+    - text: '*Moving.*'
+      size: 180
+      at: '+1.0'
+- lines:
+  - Follow for more quiet breakdowns.
+  visual:
+    type: cta
+    text: Business breakdowns, *in under a minute*.
+music: tense

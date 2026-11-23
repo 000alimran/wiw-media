@@ -1,34 +1,203 @@
 slug: spacex-starlink-pays-the-bills
 theme: violet
 publish: review
-title: "SpaceX Doesn't Make Its Money From Rockets"
-source: "Sources: SpaceX S-1 via CNBC, Tomasz Tunguz, Morningstar, Yahoo Finance · Not financial advice"
-hashtags: [SpaceX, Starlink, IPO, ElonMusk, BusinessBreakdown, Investing]
-cover: {line1: "61%", line2: "NOT ROCKETS", line3: "SpaceX S-1", tone: good}
+title: SpaceX Doesn't Make Its Money From Rockets
+source: 'Sources: SpaceX S-1 via CNBC, Tomasz Tunguz, Morningstar, Yahoo Finance · Not financial advice'
+hashtags:
+- SpaceX
+- Starlink
+- IPO
+- ElonMusk
+- BusinessBreakdown
+- Investing
+cover:
+  line1: 61%
+  line2: NOT ROCKETS
+  line3: SpaceX S-1
+  tone: good
 caption:
-  long: |
-    SpaceX doesn't make most of its money from rockets.
+  long: 'SpaceX doesn''t make most of its money from rockets.
 
-    In 2025, Starlink brought in about $11.4B, around 61% of SpaceX's revenue, at a roughly 39% operating margin. The launch business and the AI unit both ran operating losses.
+
+    In 2025, Starlink brought in about $11.4B, around 61% of SpaceX''s revenue, at a roughly 39% operating margin. The launch business and the AI unit both ran operating losses.
+
 
     Starlink subscribers grew from 2.3M in 2023 to 8.9M in 2025. The internet business is funding the rockets and the AI.
 
+
     Source: SpaceX S-1, via CNBC, Tomasz Tunguz and Morningstar. For education only, not financial advice.
-  short: "SpaceX's money doesn't come from rockets. 61% comes from Starlink. Not financial advice."
+
+    '
+  short: SpaceX's money doesn't come from rockets. 61% comes from Starlink. Not financial advice.
 scenes:
-  - lines: ["SpaceX doesn't make its money from rockets."]
-    visual: {type: title, kicker: "SpaceX", text: "NOT ROCKETS", size: 190, underline: false}
-  - lines: [{show: "In 2025, *61%* of its revenue came from one product: Starlink.", say: "In twenty twenty-five, sixty-one percent of its revenue came from one product. Starlink."}]
-    visual: {type: gauge, label: "Starlink share of SpaceX revenue", from: 0, to: 61, at: "+1.0", note: "2025 · SpaceX S-1"}
-  - lines: [{show: "Starlink made about *$11.4 billion*.", say: "Starlink made about eleven point four billion dollars."},
-            {show: "Rockets, about $4.1 billion. The AI unit, about $3.2 billion.", say: "Rockets, about four point one billion. The AI unit, about three point two billion."}]
-    visual: {type: bars, label: "2025 revenue by segment", items: [{name: "Starlink", value: 11.4, display: "$11.4B", tone: good, at: 0}, {name: "Space", value: 4.1, display: "$4.1B", tone: mut, at: 1}, {name: "AI", value: 3.2, display: "$3.2B", tone: bad, at: "+5.5"}]}
-  - lines: [{show: "And only Starlink made an operating profit, at about *39%* margins.", say: "And only Starlink made an operating profit, at about thirty-nine percent margins."},
-            {show: "Rockets lost money. The AI unit lost far more.", say: "Rockets lost money. The AI unit lost far more."}]
-    visual: {type: statement, items: [{text: "Starlink  *+39%*", size: 96, at: 0}, {text: "Space  ~–16%~", size: 96, at: 1}, {text: "AI  ~–199%~", size: 96, at: "+5.0"}]}
-  - lines: [{show: "Subscribers went from *2.3 million* in 2023 to *8.9 million* in 2025.", say: "Subscribers went from two point three million in twenty twenty-three, to eight point nine million in twenty twenty-five."}]
-    visual: {type: bars, label: "Starlink subscribers", items: [{name: "2023", value: 2.3, display: "2.3M", tone: mut, at: "+0.3"}, {name: "2024", value: 4.4, display: "4.4M", tone: mut, at: "+1.3"}, {name: "2025", value: 8.9, display: "8.9M", tone: good, at: "+2.3"}]}
-  - lines: ["So the internet business is funding the rockets *and* the AI."]
-    visual: {type: flow, items: [{icon: "$", title: "Starlink earns", sub: "Profitable subscriptions", tone: good}, {icon: "↑", title: "Funds rockets", sub: "Space segment loses money"}, {icon: "AI", title: "And the AI bet", sub: "Biggest losses, biggest capex", tone: bad}]}
-  - lines: ["Follow for more quiet breakdowns."]
-    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}
+- lines:
+  - SpaceX doesn't make its money from rockets.
+  visual:
+    type: hero
+    art: rocket
+    w: 640
+    head: Not *rockets*.
+    size: 130
+    head_at: '+0.4'
+- lines:
+  - show: 'In 2025, *61%* of its revenue came from one product: Starlink.'
+    say: In twenty twenty-five, sixty-one percent of its revenue came from one product. Starlink.
+  visual:
+    type: hero
+    art: orbit
+    w: 640
+    head: '*61%* comes from Starlink'
+    size: 100
+    head_at: '+2.4'
+    hit_head: true
+    badges:
+    - text: 2025 revenue
+      x: 40
+      y: 40
+      tone: good
+      at: '+0.8'
+    - text: SpaceX S-1
+      x: 780
+      y: 120
+      tone: mut
+      at: '+1.4'
+- lines:
+  - show: Starlink made about *$11.4 billion*.
+    say: Starlink made about eleven point four billion dollars.
+  visual:
+    type: bignum
+    label: Starlink revenue · 2025
+    value: 11.4
+    prefix: $
+    suffix: B
+    decimals: 1
+    tone: good
+    art:
+      name: orbit
+- lines:
+  - show: Rockets, about $4.1 billion. The AI unit, about $3.2 billion.
+    say: Rockets, about four point one billion. The AI unit, about three point two billion.
+  visual:
+    type: bars
+    label: 2025 revenue by segment
+    items:
+    - name: Starlink
+      value: 11.4
+      display: $11.4B
+      tone: good
+      at: 0
+    - name: Space
+      value: 4.1
+      display: $4.1B
+      tone: mut
+      at: '+0.4'
+    - name: AI
+      value: 3.2
+      display: $3.2B
+      tone: bad
+      at: '+2.4'
+- lines:
+  - show: And only Starlink made an operating profit, at about *39%* margins.
+    say: And only Starlink made an operating profit, at about thirty-nine percent margins.
+  visual:
+    type: hero
+    art: chart_up
+    w: 600
+    head: 'Only Starlink is profitable: *+39%*'
+    size: 80
+    head_at: '+2.0'
+    hit_head: true
+    badges:
+    - text: Operating margin
+      x: 40
+      y: 30
+      tone: good
+      at: '+0.6'
+- lines:
+  - show: Rockets lost money. The AI unit lost far more.
+    say: Rockets lost money. The AI unit lost far more.
+  visual:
+    type: hero
+    art: burn
+    w: 520
+    head: Rockets lose. AI loses *more*.
+    size: 86
+    head_at: '+0.3'
+    badges:
+    - text: Space  –16%
+      x: 40
+      y: 60
+      tone: bad
+      at: '+0.4'
+    - text: AI  –199%
+      x: 700
+      y: 160
+      tone: bad
+      at: '+1.6'
+    hits:
+    - '+1.6'
+- lines:
+  - show: Subscribers went from *2.3 million* in 2023 to *8.9 million* in 2025.
+    say: Subscribers went from two point three million in twenty twenty-three, to eight point nine million in twenty twenty-five.
+  visual:
+    type: hero
+    art: people
+    w: 540
+    old: 9
+    n: 36
+    head: 'Subscribers: 2.3M → *8.9M*'
+    size: 84
+    head_at: '+3.3'
+    hit_head: true
+    badges:
+    - text: '2023'
+      x: 40
+      y: 40
+      tone: mut
+      at: '+0.2'
+    - text: '2025'
+      x: 860
+      y: 40
+      tone: good
+      at: '+3.3'
+- lines:
+  - So the internet business is funding the rockets *and* the AI.
+  visual:
+    type: hero
+    art: cashflow
+    w: 560
+    head: Starlink pays for the rockets *and* the AI
+    size: 74
+    head_at: '+0.3'
+    badges:
+    - text: Starlink
+      x: 640
+      y: 30
+      tone: good
+      at: '+0.6'
+    - text: Rockets
+      x: 40
+      y: 520
+      tone: mut
+      at: '+1.2'
+    - text: AI
+      x: 880
+      y: 520
+      tone: bad
+      at: '+1.8'
+- lines:
+  - Follow for more quiet breakdowns.
+  visual:
+    type: cta
+    text: Business breakdowns, *in under a minute*.
+music: epic
+starts:
+- 0
+- 3.57
+- 9.93
+- 13.52
+- 19.16
+- 24.05
+- 27.9
+- 34.2
+- 39.1
