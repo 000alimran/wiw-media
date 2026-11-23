@@ -1,0 +1,33 @@
+slug: gta-6-billion-day-one
+theme: violet
+publish: review
+title: "GTA 6 Made More on Day One Than Avengers: Endgame's Opening"
+source: "Sources: Sensor Tower estimates via FOX, Esports.gg; Take-Two · Not financial advice"
+hashtags: [GTA6, TakeTwo, Rockstar, Gaming, BusinessBreakdown, TTWO]
+cover: {line1: "$1.84B", line2: "BY DAY ONE", line3: "GTA 6 · Sensor Tower est.", tone: good}
+caption:
+  long: |
+    GTA 6 launched on Nov 19, 2026, and Sensor Tower estimates it brought in about $1.84 billion and roughly 19 million copies by release day.
+
+    GTA 5 took three days to reach $1 billion in 2013. Avengers: Endgame's record global opening weekend was about $1.2 billion.
+
+    About 75% of sales came from PlayStation. The catch: so many copies were pre-ordered that sales could slow faster from here.
+
+    Estimates, not official Take-Two figures. For education only, not financial advice.
+  short: "GTA 6 made an estimated $1.84B by release day. That beats Endgame's opening weekend."
+scenes:
+  - lines: ["After 13 years, GTA 6 is finally out.", {show: "And it made about *$1.84 billion* by release day.", say: "And it made about one point eight four billion dollars, by release day."}]
+    visual: {type: bignum, label: "GTA 6 revenue by launch day", value: 1.84, prefix: "$", suffix: "B", decimals: 2, tone: good, note: "Sensor Tower estimate", note_at: 1}
+  - lines: [{show: "That's roughly *19 million* copies.", say: "That's roughly nineteen million copies."}]
+    visual: {type: bignum, label: "Copies sold (est.)", value: 19, suffix: "M", tone: good, note: "≈ 75% on PlayStation"}
+  - lines: [{show: "GTA 5 needed *three days* just to reach $1 billion.", say: "GTA 5 needed three days, just to reach one billion."}]
+    visual: {type: bars, label: "Revenue at launch", items: [{name: "GTA 5 (3 days)", value: 1.0, display: "$1B", tone: mut, at: 0}, {name: "GTA 6 (day 1)", value: 1.84, display: "$1.84B", tone: good, at: "+1.2"}]}
+  - lines: [{show: "Avengers: Endgame opened at about *$1.2 billion* worldwide.", say: "Avengers Endgame opened at about one point two billion worldwide."},
+            {show: "GTA 6 beat that before most people even played it.", say: "GTA 6 beat that, before most people even played it."}]
+    visual: {type: bars, label: "Biggest openings", items: [{name: "Endgame (weekend)", value: 1.21, display: "$1.21B", tone: mut, at: 0}, {name: "GTA 6 (day 1)", value: 1.84, display: "$1.84B", tone: good, at: 1}]}
+  - lines: ["But there's a catch."]
+    visual: {type: title, kicker: "But", text: "THE CATCH", size: 180}
+  - lines: ["So many copies were pre-ordered, sales could *slow faster* from here.", "That's what Take-Two investors are watching now."]
+    visual: {type: statement, items: [{text: "Pre-orders pulled sales forward", size: 80, tone: mut, anim: up}, {text: "Watch week two", size: 130, tone: bad, at: 1}]}
+  - lines: ["Follow for more quiet breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}

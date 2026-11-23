@@ -1,0 +1,33 @@
+slug: medicare-2027-premium
+theme: dark
+publish: review
+title: "Medicare Part B 2027: What Your Social Security Raise Actually Leaves You"
+source: "Sources: CMS (Nov 17, 2026) via MOAA, Becker's, 401k Specialist; SSA COLA · Not financial advice"
+hashtags: [Medicare, SocialSecurity, Retirement, COLA, PersonalFinance, Seniors]
+cover: {line1: "$209.40", line2: "EVERY MONTH", line3: "Medicare Part B 2027", tone: bad}
+caption:
+  long: |
+    Medicare Part B will cost $209.40 a month in 2027, up $6.50 (3.2%) from $202.90, CMS announced Nov 17. The annual Part B deductible rises to $292.
+
+    The good news: Social Security's 2027 COLA is 3.6%, so for the first time since 2023 the Part B increase is smaller than the raise. Last year the premium jumped $17.90 against a 2.8% COLA.
+
+    Example (our math): on a $2,000 check, a 3.6% COLA adds $72. Minus the $6.50 premium increase, you keep about $65.50. Higher earners pay more through IRMAA.
+
+    For education only, not financial or medical advice.
+  short: "Medicare Part B hits $209.40/month in 2027. Here's how much of your raise you keep."
+scenes:
+  - lines: [{show: "Medicare Part B will cost *$209.40* a month in 2027.", say: "Medicare Part B will cost two hundred nine dollars and forty cents a month in twenty twenty-seven."}]
+    visual: {type: bignum, label: "Standard Part B premium · 2027", value: 209.40, prefix: "$", decimals: 2, tone: bad, note: "per month · announced Nov 17, 2026"}
+  - lines: [{show: "That's up *$6.50*, or 3.2%.", say: "That's up six dollars and fifty cents, or three point two percent."},
+            {show: "And the deductible rises to *$292*.", say: "And the yearly deductible rises to two hundred ninety-two dollars."}]
+    visual: {type: bars, label: "Part B, 2026 vs 2027", items: [{name: "Premium 2026", value: 202.9, display: "$202.90", tone: mut, at: 0}, {name: "Premium 2027", value: 209.4, display: "$209.40", tone: bad, at: "+0.8"}]}
+  - lines: [{show: "The good news: Social Security's 2027 raise is *3.6%*.", say: "The good news? Social Security's twenty twenty-seven raise is three point six percent."},
+            {show: "For the first time since 2023, Medicare is rising *slower* than your raise.", say: "For the first time since twenty twenty-three, Medicare is rising slower than your raise."}]
+    visual: {type: bars, label: "2027 increase", items: [{name: "Social Security raise", value: 3.6, display: "3.6%", tone: good, at: 0}, {name: "Part B premium", value: 3.2, display: "3.2%", tone: bad, at: 1}]}
+  - lines: [{show: "Last year, the premium jumped *$17.90* against a 2.8% raise.", say: "Last year, the premium jumped seventeen dollars and ninety cents, against a two point eight percent raise."}]
+    visual: {type: statement, items: [{text: "2026: +$17.90", size: 110, tone: bad, anim: up}, {text: "2027: +$6.50", size: 110, tone: good, at: "+1.6"}]}
+  - lines: [{show: "Say your check is $2,000. The raise adds *$72*.", say: "Say your check is two thousand dollars. The raise adds seventy-two."},
+            {show: "Medicare takes back $6.50. You keep about *$65.50*.", say: "Medicare takes back six fifty. You keep about sixty-five fifty."}]
+    visual: {type: flow, items: [{icon: "+", title: "COLA raise +$72", sub: "3.6% of a $2,000 check", tone: good}, {icon: "–", title: "Part B increase –$6.50", sub: "Deducted from your check", tone: bad}, {icon: "=", title: "You keep ≈ $65.50", sub: "Our math · higher earners pay more (IRMAA)"}]}
+  - lines: ["Follow for more quiet money breakdowns."]
+    visual: {type: cta, kicker: "Money breakdowns", text: "Follow for more"}
