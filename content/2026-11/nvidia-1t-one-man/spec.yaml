@@ -1,0 +1,158 @@
+slug: nvidia-1t-one-man
+theme: violet
+music: tense
+publish: review
+title: Nvidia Added $1 Trillion in a Day. Because One Man Came Back.
+source: 'Sources: NVIDIA 8-K filings (Nov 12 & 23, 2026), Reuters, CBS News, Benzinga · Not financial advice'
+hashtags:
+- Nvidia
+- JensenHuang
+- NVDA
+- StockMarket
+- Investing
+cover:
+  line1: ≈ $1T
+  line2: ONE MAN
+  line3: Nvidia · Nov 23, 2026
+  tone: good
+caption:
+  long: 'Nvidia added close to $1 trillion in market value in one day, not because of earnings, but because Jensen Huang came back as CEO, 11 days after he resigned.
+
+
+    Watch the full 6-minute breakdown: what happened, why Wall Street panicked, and the risk hiding in almost every company you own.
+
+    FULL VIDEO: {LONG_URL}
+
+
+    For education only, not financial advice.'
+  short: 'Nvidia gained ~$1T in a day because one man came back. Full story: {LONG_URL}'
+starts:
+- 0.12
+- 6.42
+- 8.28
+- 9.82
+- 12.78
+- 16.02
+- 18.4
+- 20.24
+- 21.64
+- 23.32
+- 25.22
+- 29.72
+- 38.08
+scenes:
+- lines:
+  - show: On Monday, one company gained more value in a single day than any company in history.
+    say: On Monday, one company gained more value in a single day than any company in history.
+  visual:
+    type: hero
+    art: chart_up
+    w: 600
+    head: ≈ *$1T* in a day
+    size: 120
+    head_at: '+1.5'
+    hit_head: true
+    badges:
+    - text: Nov 23, 2026
+      x: 40
+      y: 40
+      tone: mut
+      at: '+0.6'
+    - text: Biggest ever
+      x: 740
+      y: 130
+      tone: good
+      at: '+3.0'
+- lines:
+  - show: Not because it launched a product.
+    say: Not because it launched a product.
+  - show: Not because of earnings.
+    say: Not because of earnings.
+  - show: Because one man walked back through the door.
+    say: Because one man walked back through the door.
+  visual:
+    type: statement
+    items:
+    - text: A new product?
+      size: 96
+      tone: mut
+      strike: true
+      strike_at: 1
+      anim: up
+    - text: Earnings?
+      size: 96
+      tone: mut
+      strike: true
+      strike_at: 2
+      at: 1
+    - text: '*One man.*'
+      size: 170
+      at: 2
+- lines:
+  - show: Eleven days earlier, that same man had resigned.
+    say: Eleven days earlier, that same man had resigned.
+  - show: His board said it would not bring him back.
+    say: His board said it would not bring him back.
+  - show: Then it changed its mind.
+    say: Then it changed its mind.
+  - show: Unanimously.
+    say: Unanimously.
+  visual:
+    type: flow
+    items:
+    - icon: '1'
+      title: He resigned
+      sub: 11 days earlier
+      tone: bad
+    - icon: '2'
+      title: 'Board: "not coming back"'
+      sub: ''
+      tone: mut
+      at: 1
+    - icon: '3'
+      title: Then it reversed
+      sub: Unanimously
+      tone: good
+      at: 2
+- lines:
+  - show: The company is Nvidia.
+    say: The company is Nvidia.
+  - show: The man is Jensen Huang.
+    say: The man is Jensen Huang.
+  - show: And the gap between those two decisions was worth roughly a trillion dollars.
+    say: And the gap between those two decisions was worth roughly a trillion dollars.
+  visual:
+    type: hero
+    art: gpu
+    w: 560
+    head: Nvidia × Jensen Huang
+    size: 96
+    head_at: 0
+    badges:
+    - text: 'The gap: ≈ $1T'
+      x: 300
+      y: 40
+      tone: good
+      at: 2
+    hits:
+    - 2
+- lines:
+  - show: 'In the next few minutes: what happened, why Wall Street panicked, and the one risk this story exposes in almost every company you own.'
+    say: 'In the next few minutes: what happened, why Wall Street panicked, and the one risk this story exposes in almost every company you own.'
+  visual:
+    type: checklist
+    title: the full story
+    items:
+    - What actually happened
+    - Why Wall Street panicked
+    - The risk in almost every company you own
+    at: '+0.8'
+- lines:
+  - show: 'Full story: *link below* 👇'
+    say: full story
+  visual:
+    type: cta
+    text: The full 6-minute story is *on our channel*.
+    button: ▶ FULL VIDEO
+    button_done: ✓ LINK BELOW
+    foot: Link in the description & comments

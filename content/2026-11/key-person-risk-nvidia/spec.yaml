@@ -1,0 +1,111 @@
+slug: key-person-risk-nvidia
+theme: cream
+music: tense
+publish: review
+title: 'Key-Person Risk: Why One CEO Can Be Worth $1 Trillion'
+source: 'Sources: NVIDIA 8-K filings (Nov 12 & 23, 2026), Reuters, CBS News, Benzinga · Not financial advice'
+hashtags:
+- KeyPersonRisk
+- Nvidia
+- SteveJobs
+- SamAltman
+- Investing
+cover:
+  line1: KEY-PERSON
+  line2: RISK
+  line3: Apple · OpenAI · Nvidia
+  tone: bad
+caption:
+  long: 'Apple pushed out Steve Jobs. OpenAI fired Sam Altman. Nvidia lost Jensen Huang for 11 days. Each time, the founder came back.
+
+
+    That''s key-person risk: when one person is the valuation.
+
+
+    Full Nvidia breakdown: {LONG_URL}
+
+
+    For education only, not financial advice.'
+  short: 'Apple, OpenAI, Nvidia: when one founder IS the company. Full story: {LONG_URL}'
+starts:
+- 0.12
+- 2.76
+- 4.36
+- 11.16
+- 13.0
+- 16.26
+- 23.14
+- 27.44
+- 31.46
+- 37.9
+- 39.72
+- 46.1
+scenes:
+- lines:
+  - show: Investors have a name for what we just watched.
+    say: Investors have a name for what we just watched.
+  - show: '*Key-person risk.*'
+    say: Key-person risk.
+  - show: It's when a company's value depends so heavily on one person that losing them changes what the whole business is worth.
+    say: It's when a company's value depends so heavily on one person that losing them changes what the whole business is worth.
+  visual:
+    type: title
+    kicker: The lesson
+    text: KEY-PERSON<br>RISK
+    size: 100
+    underline: true
+    sub: When one person is the valuation
+- lines:
+  - show: And Nvidia isn't the first.
+    say: And Nvidia isn't the first.
+  - show: In 1985, Apple pushed out Steve Jobs.
+    say: In 1985, Apple pushed out Steve Jobs.
+  - show: He came back in 1997, when the company was struggling, and led one of the greatest turnarounds in business history.
+    say: He came back in 1997, when the company was struggling, and led one of the greatest turnarounds in business history.
+  - show: In November 2023, OpenAI's board fired Sam Altman.
+    say: In November 2023, OpenAI's board fired Sam Altman.
+  - show: Within days, after most of the staff threatened to leave, he was back.
+    say: Within days, after most of the staff threatened to leave, he was back.
+  - show: 'The pattern repeats: a board removes a founder, people revolt, and the founder returns.'
+    say: 'The pattern repeats: a board removes a founder, people revolt, and the founder returns.'
+  visual:
+    type: flow
+    items:
+    - icon: '85'
+      title: Apple · 1985 → 1997
+      sub: Jobs pushed out, returns
+      tone: mut
+      at: 1
+    - icon: '23'
+      title: OpenAI · Nov 2023
+      sub: Altman fired, back in days
+      tone: mut
+      at: 3
+    - icon: '26'
+      title: Nvidia · Nov 2026
+      sub: Huang back in 11 days
+      tone: good
+      at: 5
+- lines:
+  - show: But here's the uncomfortable part.
+    say: But here's the uncomfortable part.
+  - show: A company that can't survive without one person has a weakness, no matter how brilliant that person is.
+    say: A company that can't survive without one person has a weakness, no matter how brilliant that person is.
+  visual:
+    type: statement
+    items:
+    - text: Brilliant founder
+      size: 110
+      anim: up
+    - text: ~= single point of failure~
+      size: 84
+      at: 1
+- lines:
+  - show: 'Full story: *link below* 👇'
+    say: full story
+  visual:
+    type: cta
+    text: The full 6-minute story is *on our channel*.
+    button: ▶ FULL VIDEO
+    button_done: ✓ LINK BELOW
+    foot: Link in the description & comments

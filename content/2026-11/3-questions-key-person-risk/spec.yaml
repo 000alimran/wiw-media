@@ -1,0 +1,117 @@
+slug: 3-questions-key-person-risk
+theme: dark
+music: tense
+publish: review
+title: 3 Questions to Ask Before You Invest in Any Company
+source: 'Sources: NVIDIA 8-K filings (Nov 12 & 23, 2026), Reuters, CBS News, Benzinga · Not financial advice'
+hashtags:
+- Investing
+- Nvidia
+- StockMarket
+- PersonalFinance
+- KeyPersonRisk
+cover:
+  line1: 3 QUESTIONS
+  line2: BEFORE YOU INVEST
+  line3: Lessons from Nvidia
+  tone: good
+caption:
+  long: 'Three questions to ask about any company you invest in, or work for, from Nvidia''s 11-day CEO crisis:
+
+    1. If the founder vanished, who would the biggest customers call?
+
+    2. Is there a real succession plan?
+
+    3. Who can say no to the CEO?
+
+
+    Full breakdown: {LONG_URL}
+
+
+    For education only, not financial advice.'
+  short: '3 questions to ask before investing in any company. Full story: {LONG_URL}'
+starts:
+- 0.12
+- 4.98
+- 5.7
+- 9.72
+- 13.12
+- 13.84
+- 17.62
+- 23.08
+- 23.8
+- 26.06
+- 28.96
+- 30.38
+scenes:
+- lines:
+  - show: So here are three questions to ask about any company you invest in, or work for.
+    say: So here are three questions to ask about any company you invest in, or work for.
+  visual:
+    type: title
+    kicker: Lessons from Nvidia
+    text: 3 QUESTIONS<br>FOR ANY COMPANY
+    size: 110
+    underline: true
+- lines:
+  - show: One.
+    say: One.
+  - show: If the founder disappeared tomorrow, who would the biggest customers call?
+    say: If the founder disappeared tomorrow, who would the biggest customers call?
+  - show: If there's no clear answer, that's key-person risk.
+    say: If there's no clear answer, that's key-person risk.
+  visual:
+    type: statement
+    items:
+    - text: '*1*'
+      size: 220
+      anim: pop
+    - text: If the founder vanished,<br>who would<br>customers call?
+      size: 70
+      at: 1
+- lines:
+  - show: Two.
+    say: Two.
+  - show: Is there a real succession plan, or just a name on a slide?
+    say: Is there a real succession plan, or just a name on a slide?
+  - show: Nvidia needed an interim CEO, and eleven very expensive days, to find out.
+    say: Nvidia needed an interim CEO, and eleven very expensive days, to find out.
+  visual:
+    type: statement
+    items:
+    - text: '*2*'
+      size: 220
+      anim: pop
+    - text: A real succession plan,<br>or a name<br>on a slide?
+      size: 70
+      at: 1
+- lines:
+  - show: Three.
+    say: Three.
+  - show: Who can say no to the CEO?
+    say: Who can say no to the CEO?
+  - show: A strong board isn't a threat to a great founder.
+    say: A strong board isn't a threat to a great founder.
+  - show: It's insurance.
+    say: It's insurance.
+  visual:
+    type: statement
+    items:
+    - text: '*3*'
+      size: 220
+      anim: pop
+    - text: Who can say no<br>to the CEO?
+      size: 70
+      at: 1
+    - text: Strong board<br>= *insurance*
+      size: 76
+      at: 2
+- lines:
+  - show: 'Full story: *link below* 👇'
+    say: full story
+  visual:
+    type: cta
+    text: The full 6-minute story is *on our channel*.
+    button: ▶ FULL VIDEO
+    button_done: ✓ LINK BELOW
+    foot: Link in the description & comments
