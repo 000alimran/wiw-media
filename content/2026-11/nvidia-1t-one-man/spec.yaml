@@ -1,7 +1,7 @@
 slug: nvidia-1t-one-man
 theme: violet
 music: tense
-publish: review
+publish: now
 title: Nvidia Added $1 Trillion in a Day. Because One Man Came Back.
 source: 'Sources: NVIDIA 8-K filings (Nov 12 & 23, 2026), Reuters, CBS News, Benzinga · Not financial advice'
 hashtags:
@@ -21,11 +21,11 @@ caption:
 
     Watch the full 6-minute breakdown: what happened, why Wall Street panicked, and the risk hiding in almost every company you own.
 
-    FULL VIDEO: {LONG_URL}
+    FULL VIDEO: https://youtu.be/VK0V-YNAHgA
 
 
     For education only, not financial advice.'
-  short: 'Nvidia gained ~$1T in a day because one man came back. Full story: {LONG_URL}'
+  short: 'Nvidia gained ~$1T in a day because one man came back. Full story: https://youtu.be/VK0V-YNAHgA'
 starts:
 - 0.12
 - 6.42

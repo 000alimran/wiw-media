@@ -1,7 +1,7 @@
 slug: key-person-risk-nvidia
 theme: cream
 music: tense
-publish: review
+publish: "2026-11-24 19:00 America/New_York"
 title: 'Key-Person Risk: Why One CEO Can Be Worth $1 Trillion'
 source: 'Sources: NVIDIA 8-K filings (Nov 12 & 23, 2026), Reuters, CBS News, Benzinga · Not financial advice'
 hashtags:
@@ -22,11 +22,11 @@ caption:
     That''s key-person risk: when one person is the valuation.
 
 
-    Full Nvidia breakdown: {LONG_URL}
+    Full Nvidia breakdown: https://youtu.be/VK0V-YNAHgA
 
 
     For education only, not financial advice.'
-  short: 'Apple, OpenAI, Nvidia: when one founder IS the company. Full story: {LONG_URL}'
+  short: 'Apple, OpenAI, Nvidia: when one founder IS the company. Full story: https://youtu.be/VK0V-YNAHgA'
 starts:
 - 0.12
 - 2.76
