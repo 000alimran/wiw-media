@@ -1,0 +1,15 @@
+# HighLevel (GoHighLevel) settings for Wealth In Whispers publishing.
+location_id: 7wiamEKhNIerqniam7Ae      # sub-account "YOLO"
+user_id: QJo0c1mtDBzABoAjfn2f
+media_root_folder: WIW                 # Media Storage: WIW/<Month YYYY>/
+default_platforms: [youtube, instagram, facebook, tiktok, linkedin]
+accounts:
+  youtube:   6af6a0d3f410ab8db03eb958_7wiamEKhNIerqniam7Ae_UCRn7906hFH8-9juB5YgzJ4Q_profile
+  instagram: 6a65d984ef2a0638c8e42d4f_7wiamEKhNIerqniam7Ae_17841431016720384
+  facebook:  6a65d956bde2cfa07376fbae_7wiamEKhNIerqniam7Ae_682499738284703_page
+  tiktok:    6af711885cd7edcbd3584c68_7wiamEKhNIerqniam7Ae_000NWQS1VT0svAIKKgTJBoDT6DxlEfFAUs_business
+  linkedin:  6a65d9e32b6b2407b3378ab5_7wiamEKhNIerqniam7Ae_107811020_page
+cta:
+  youtube:   Subscribe for quiet business breakdowns.
+  instagram: Follow @wealthinwhisper for quiet business breakdowns.
+  linkedin:  Follow Wealth In Whispers for quiet business breakdowns.

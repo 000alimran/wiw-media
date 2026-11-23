@@ -1,0 +1,9 @@
+**/video.html
+**/cover.html
+**/video.mp4
+**/video.part.mp4
+**/cover.jpg
+**/preview_*.jpg
+__pycache__/
+examples/**/voice.mp3
+examples/**/timing.json

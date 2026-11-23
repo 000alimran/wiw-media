@@ -1,0 +1,42 @@
+slug: anthropic-104b-catch
+theme: dark                    # dark | cream | violet  (rotate for variety)
+publish: review                # review = render only | now | "2026-11-24 11:00 America/New_York"
+title: "Anthropic Lost $104 Billion. Here's the Catch."
+source: "Source: Anthropic S-1/A · Not financial advice"
+hashtags: [Anthropic, ANTstock, IPO, AIstocks, Investing, StockMarket]
+cover: {line1: "–$104B", line2: "THE CATCH", line3: "Anthropic S-1/A", tone: bad}
+caption:
+  long: |
+    Anthropic lost $104 billion in 9 months. Wall Street still handed it $81 billion.
+
+    Here's the catch: $94.3B of that loss is a fair-value change on convertible notes and SAFEs. An accounting rule, not cash leaving the company.
+
+    Not a money printer. Not a bonfire. Roughly break-even, while growing fast.
+
+    Source: Anthropic S-1/A. For education only, not financial advice.
+  short: "Anthropic lost $104B in 9 months... but $94.3B of it is paper. Not financial advice."
+scenes:
+  - lines: ["Anthropic lost ~$104 billion~ in nine months."]
+    visual: {type: bignum, label: "Net loss · Jan–Sep 2026", value: 104000000000, prefix: "–$", sep: true, tone: bad, note: "That's not a typo."}
+  - lines: ["And Wall Street still gave it *$81 billion* more.", "The biggest IPO ever."]
+    visual: {type: bignum, label: "IPO raised · Nov 2026", value: 81.3, prefix: "+$", suffix: "B", decimals: 1, tone: good,
+             stamp: {text: "RECORD IPO", at: 1, top: 560, side: left, x: 300, rot: -4}}
+  - lines: ["Here's the catch."]
+    visual: {type: title, kicker: "Here's", text: "THE CATCH", size: 300}
+  - lines: ["*$94 billion* of that loss is an accounting rule.", "Not cash."]
+    visual: {type: split, label: "What's inside the $104B",
+             parts: [{value: 94.3, display: "$94.3B", name: "accounting (fair-value)", hatch: true}, {value: 9.7, display: "~$9.7B", name: "everything else", tone: bad}],
+             stamp: {text: "NOT CASH", at: 1, top: 330, side: left, x: 210, rot: -8}}
+  - lines: ["Early investors held IOUs that turn into shares.", "The company got more valuable, so the IOUs did too.", "And accounting calls that a ~loss~."]
+    visual: {type: flow, items: [{icon: IOU, title: "Early investors hold IOUs", sub: "Convertible notes & SAFEs → future shares"},
+                                 {icon: "↗", title: "Valuation soars", sub: "So the IOUs are worth more", tone: good},
+                                 {icon: "–$", title: "Booked as a \"loss\"", sub: "On paper. No cash leaves.", tone: bad}]}
+  - lines: ["Strip it out, and Anthropic turned an *operating profit* in Q2.", "*$974 million.*", "Then it slipped back to a small ~loss~ in Q3."]
+    visual: {type: bars, label: "Operating income",
+             items: [{name: "Q2 2026", value: 974, display: "+$974M", at: 0}, {name: "Q3 2026", value: -567, display: "–$567M", at: 2}]}
+  - lines: ["So no, it's not burning $100 billion. It's roughly *breaking even*, while growing like crazy."]
+    visual: {type: statement, items: [{text: "Burning $100B a year?", size: 64, tone: mut, strike: true, anim: up},
+                                      {text: "≈ BREAK-EVEN", size: 180, tone: good, at: "+2.6"},
+                                      {text: "while growing *like crazy*", size: 60, at: "+4.2", anim: up}]}
+  - lines: ["The full breakdown is on the channel."]
+    visual: {type: cta}

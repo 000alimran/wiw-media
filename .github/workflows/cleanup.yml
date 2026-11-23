@@ -1,0 +1,18 @@
+name: cleanup
+# Every 2 hours: when all posts of a video are live, delete its files from HighLevel Media Storage.
+on:
+  schedule: [{cron: "17 */2 * * *"}]
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q pyyaml requests
+      - env: {GHL_TOKEN: "${{ secrets.GHL_TOKEN }}"}
+        run: '[ -z "$GHL_TOKEN" ] && echo "GHL_TOKEN not set" || python tools/ghl.py cleanup'
+      - run: |
+          git config user.name "wiw-bot"; git config user.email "wiw-bot@users.noreply.github.com"
+          git add content || true
+          git diff --cached --quiet || (git commit -m "cleanup: update state [skip ci]" && git push)
