@@ -1,0 +1,40 @@
+slug: nvidia-huang-trillion-dollar-ceo
+theme: dark
+music: tense
+publish: review
+title: "Nvidia Just Added ~$1 Trillion in One Day. Because One Man Came Back."
+source: "Sources: NVIDIA 8-K (Nov 23, 2026), Reuters, CBS News, Benzinga, CNN · Not financial advice"
+hashtags: [Nvidia, NVDA, JensenHuang, StockMarket, Investing, BusinessBreakdown]
+cover: {line1: "≈ $1 TRILLION", line2: "IN ONE DAY", line3: "Nvidia · Nov 23, 2026", tone: good}
+caption:
+  long: |
+    Nvidia added close to $1 trillion in market value in a single day after its board reinstated Jensen Huang as CEO. Depending on the timestamp, estimates run from about $888B to $1T, the biggest one-day value gain on record (the previous record was roughly $450B).
+
+    Timeline: Huang resigned on Nov 12 amid reports he was the target of a foreign intelligence effort. Last week the board said it did not intend to reinstate him. On Nov 23 it reversed, unanimously, after input from senior levels of the US government. The board's independent investigation continues.
+
+    The lesson investors call key-person risk: when one leader is worth this much to a company, that's a strength and a risk at the same time.
+
+    For education only, not financial advice.
+  short: "Nvidia gained ~$1T in a day because one man came back. That's key-person risk. Not financial advice."
+scenes:
+  - lines: [{show: "Nvidia just added nearly *$1 trillion* in value. In one day.", say: "Nvidia just added nearly one trillion dollars in value. In one day."}]
+    visual: {type: hero, art: chart_up, w: 600, head: "≈ *$1T* in a day", size: 120, head_at: "+1.2", hit_head: true,
+             badges: [{text: "Nov 23, 2026", x: 40, y: 40, tone: mut, at: "+0.5"}, {text: "Biggest ever", x: 760, y: 130, tone: good, at: "+2.0"}]}
+  - lines: ["Not because of earnings. Because *one man* came back."]
+    visual: {type: statement, art: {name: gpu}, items: [{text: "Not earnings.", size: 110, tone: mut, strike: true, strike_at: "+1.2", anim: up}, {text: "*One man.*", size: 170, at: "+1.6"}]}
+  - lines: [{show: "On November 12, CEO Jensen Huang resigned.", say: "On November twelfth, C.E.O. Jensen Huang resigned."},
+            {show: "Reports said he'd been the target of a foreign intelligence effort.", say: "Reports said he had been the target of a foreign intelligence effort."}]
+    visual: {type: hero, art: document, w: 520, doc_title: "FORM 8-K", doc_stamp: "RESIGNED", stamp_size: 52, stamp_at: "+1.4", head: "The CEO steps down", size: 84, head_at: "+0.4", hits: ["+1.4"]}
+  - lines: [{show: "The stock was already down *41%* from its late-October high.", say: "The stock was already down forty-one percent from its late-October high."}]
+    visual: {type: bignum, label: "NVDA · Oct 29 → Nov 20 close", value: 41, prefix: "–", suffix: "%", tone: bad, note: "AI sell-off + CEO exit", art: {name: chart_up}}
+  - lines: [{show: "Last week, the board said it did *not* intend to bring him back.", say: "Last week, the board said it did not intend to bring him back."},
+            {show: "Then, 11 days after he left, it reversed. Unanimously.", say: "Then, eleven days after he left, it reversed. Unanimously."}]
+    visual: {type: flow, items: [{icon: "1", title: "Nov 12 · Resigns", sub: "CFO Colette Kress named interim CEO", tone: bad}, {icon: "2", title: "Last week · \"No return\"", sub: "Board chair on the earnings call", tone: mut, at: 0}, {icon: "3", title: "Nov 23 · Reinstated", sub: "Unanimous vote, after US government input", tone: good, at: 1}]}
+  - lines: [{show: "The stock jumped more than *30%*. The biggest one-day value gain ever recorded.", say: "The stock jumped more than thirty percent. The biggest one-day value gain ever recorded."}]
+    visual: {type: bars, label: "Biggest one-day market value gains", items: [{name: "Previous record", value: 450, display: "≈ $450B", tone: mut, at: 0}, {name: "Nvidia · Nov 23", value: 900, display: "$888B–$1T", tone: good, at: "+1.2"}]}
+  - lines: ["Investors have a name for this: *key-person risk*."]
+    visual: {type: title, kicker: "The lesson", text: "KEY-PERSON RISK", size: 140, underline: true}
+  - lines: ["When one person is worth a trillion dollars to a company,", "that's a *strength*. And a ~risk~."]
+    visual: {type: statement, items: [{text: "1 person ≈ $1T", size: 120, anim: up}, {text: "*Strength.*", size: 110, at: 1}, {text: "~Risk.~", size: 110, at: "+4.0"}]}
+  - lines: ["The investigation isn't over. Follow for the next chapter."]
+    visual: {type: cta, text: "The investigation *isn't over*."}
