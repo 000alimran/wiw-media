@@ -15,7 +15,9 @@ Do NOT call the HighLevel connector to post — the workflow does it. Batch seve
    user drops `voice.mp3` into the folder (GitHub web upload) and the push triggers everything.
 4. `publish: review` first if the user wants to see it (video appears as the run's `videos` artifact); then change to
    `now` or a time and delete nothing else — re-run with workflow_dispatch.
-5. Status lives in `state.json` (written by the workflow). `cleaned: true` = media deleted.
+5. For each video also add a matching entry to `lib/breakdowns.ts` in the `000alimran/wiw` site repo (adds the
+   article page, sitemap and llms.txt entry); set `youtubeId` once the Short is live.
+6. Status lives in `state.json` (written by the workflow). `cleaned: true` = media deleted.
 
 ## spec.yaml reference
 ```yaml
