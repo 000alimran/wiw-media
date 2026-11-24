@@ -28,7 +28,8 @@ def main(folder, tts=False):
         r = requests.post(f"https://api.elevenlabs.io/v1/text-to-speech/{vid}?output_format=mp3_44100_128",
                           headers={"xi-api-key": os.environ["ELEVENLABS_API_KEY"]},
                           json={"text": script, "model_id": spec.get("voice_model") or cfg.get("voice_model", "eleven_multilingual_v2")}, timeout=300)
-        r.raise_for_status()
+        if not r.ok:
+            print(f"ElevenLabs {r.status_code}: {r.text[:300]}"); sys.exit(4)
         (fp / "voice.mp3").write_bytes(r.content)
         print("voice.mp3 generated")
 
