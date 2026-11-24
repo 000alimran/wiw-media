@@ -1,0 +1,40 @@
+{
+ "duration": 27.2,
+ "lines": [
+  {
+   "text": "Abercrombie stock just jumped 22% in one day.",
+   "start": 0.0,
+   "end": 3.5
+  },
+  {
+   "text": "Yes. That Abercrombie. The mall brand from 2005.",
+   "start": 3.8,
+   "end": 7.64
+  },
+  {
+   "text": "Record quarter. One point four billion in sales, up eleven percent.",
+   "start": 7.96,
+   "end": 12.24
+  },
+  {
+   "text": "Its 16th growth quarter in a row.",
+   "start": 12.52,
+   "end": 14.52
+  },
+  {
+   "text": "Both brands grew. Abercrombie up twelve percent. Hollister up eleven.",
+   "start": 14.82,
+   "end": 18.86
+  },
+  {
+   "text": "The stock's fifty-two week low? Sixty-nine sixty-eight. Now it's about two and a half times that.",
+   "start": 19.22,
+   "end": 24.48
+  },
+  {
+   "text": "Follow for more quiet business breakdowns.",
+   "start": 24.82,
+   "end": 27.2
+  }
+ ]
+}
