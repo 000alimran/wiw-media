@@ -341,11 +341,13 @@ def build(folder):
         if si > 0:
             body += f'<div class="sweep" data-at="{max(0, t0 - .25):.3f}" data-anim="sweep" data-dur="0.55"></div>'
             fx["whoosh"].append(round(max(0, t0 - .3), 2))
-        body += f'<div class="scene" data-at="{t0}" data-anim="enter" data-dur="0.55"{out}><div class="push" data-push="{t0},{t1 or total}">{inner}</div></div>\n'
+        hook = f' data-hook="{spec.get("hook_at", 1.6)}"' if si == 0 and spec.get("hook", True) else ""
+        body += f'<div class="scene"{hook} data-at="{t0}" data-anim="enter" data-dur="0.55"{out}><div class="push" data-push="{t0},{t1 or total}">{inner}</div></div>\n'
     for k, ln in enumerate(timing["lines"]):
         nxt = timing["lines"][k + 1]["start"] - .12 if k + 1 < len(timing["lines"]) else None
         out = f' data-out="{nxt}" data-outdur="0.25"' if nxt else ""
-        caps += (f'<div class="cap" data-at="{max(0, ln["start"] - .05):.3f}" data-anim="fade" data-dur="0.01"{out}>'
+        hk = ' data-hook="99"' if k == 0 and spec.get("hook", True) else ""
+        caps += (f'<div class="cap"{hk} data-at="{max(0, ln["start"] - .05):.3f}" data-anim="fade" data-dur="0.01"{out}>'
                  f'<div class="say" data-at="{ln["start"]:.3f}" data-end="{ln["end"]:.3f}">{rich(lines[k])}</div></div>\n')
     body += caps + f'<div class="src">{E(spec.get("source", "Not financial advice"))}</div>'
     import os

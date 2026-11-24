@@ -33,7 +33,16 @@
       ws.forEach((w, i) => { w.dataset.at = (at + (ws.length > 1 ? i * span / (ws.length - 1) : 0) - 0.08).toFixed(3); w.dataset.anim = 'word'; w.dataset.dur = '0.42'; });
       el.removeAttribute('data-at');
     });
-    document.querySelectorAll('[data-at]').forEach(el => { el._base = el.dataset.base || ''; });
+    // Hook frame: inside [data-hook], anything due before the hook time is already fully shown at t=0,
+    // so the very first frame (feed preview / grid cover) carries the hook instead of an empty background.
+    document.querySelectorAll('[data-at]').forEach(el => {
+      el._base = el.dataset.base || '';
+      const h = el.closest('[data-hook]');
+      el._instant = !!h && +el.dataset.at <= +h.dataset.hook;
+    });
+    document.querySelectorAll('[data-hook] [data-count]').forEach(el => {
+      el._instant = +el.dataset.cat <= +el.closest('[data-hook]').dataset.hook;
+    });
     document.querySelectorAll('path[data-anim=draw], line[data-anim=draw], circle[data-anim=draw], polyline[data-anim=draw]').forEach(p => {
       p.setAttribute('pathLength', '1'); p.style.strokeDasharray = '1';
     });
@@ -45,9 +54,11 @@
     return s;
   }
 
-  window.render = function (t) {
+  window.render = function (T) {
+    let t = T;
     document.querySelectorAll('[data-at]').forEach(el => {
       const d = el.dataset, at = +d.at, dur = +(d.dur || 0.7), anim = d.anim || 'up';
+      t = el._instant ? Math.max(T, at + dur) : T;
       const p = C((t - at) / dur);
       let tf = '', op = 1, bl = 0, extra = null;
       if (t < at) op = 0;
@@ -71,7 +82,7 @@
         case 'draw': { const e = Ez.inout(p); extra = () => { el.style.strokeDashoffset = String(1 - e); }; op = t < at ? 0 : 1; break; }
       }
       if (d.out !== undefined) {
-        const q = C((t - +d.out) / +(d.outdur || 0.45)), eo = Ez.inout(q);
+        const q = C((T - +d.out) / +(d.outdur || 0.45)), eo = Ez.inout(q);
         op *= 1 - eo; bl += eo * 14;
         const oy = d.outmode === 'zoom' ? null : -eo * 60;
         tf = (d.outmode === 'zoom' ? `scale(${1 + eo * 0.15}) ` : `translateY(${oy}px) `) + tf;
@@ -81,8 +92,9 @@
       el.style.opacity = op.toFixed(3);
       el.style.filter = bl > 0.05 ? `blur(${bl.toFixed(2)}px)` : 'none';
     });
+    t = T;
     document.querySelectorAll('[data-count]').forEach(el => {
-      const d = el.dataset, p = C((t - +d.cat) / +(d.cdur || 1.6)), e = Ez.expo(p);
+      const d = el.dataset, p = el._instant ? 1 : C((t - +d.cat) / +(d.cdur || 1.6)), e = Ez.expo(p);
       const v = +d.from + (+d.count - +d.from) * e;
       el.textContent = (d.pre || '') + fmt(v, +(d.dec || 0), d.sep !== undefined) + (d.suf || '');
     });
