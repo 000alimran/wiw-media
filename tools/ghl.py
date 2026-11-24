@@ -46,7 +46,7 @@ def upload(path, name, parent):
         r = req("POST", "/medias/upload-file", files={"file": (name, fh, "video/mp4" if name.endswith(".mp4") else "image/jpeg")}, data={"name": name, "parentId": parent})
     fid = r.get("fileId") or r.get("_id")
     for _ in range(60):  # wait for HighLevel to finish encoding the video
-        hit = [f for f in files(type="file", query=name) if f.get("_id") == fid]
+        hit = [f for f in files(type="file", query=name.rsplit(".", 1)[0]) if f.get("_id") == fid]  # GHL may rename to "name (2).mp4"
         if hit and not hit[0].get("encodingInProgress") and hit[0].get("url"):
             return hit[0]
         time.sleep(10)
