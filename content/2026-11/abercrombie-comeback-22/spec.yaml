@@ -1,0 +1,31 @@
+slug: abercrombie-comeback-22
+theme: violet
+music: epic
+publish: "2026-11-24 16:30 America/New_York"
+title: "Abercrombie Stock Jumped 22% in One Day. The Comeback Nobody Expected."
+source: "Source: Abercrombie & Fitch Q3 FY2026 results (Nov 24, 2026), Investing.com · Not financial advice"
+hashtags: [Abercrombie, Hollister, Retail, StockMarket, Comeback, Business]
+cover: {line1: "+22%", line2: "IN ONE DAY", line3: "Abercrombie & Fitch", tone: good}
+caption:
+  long: |
+    Abercrombie & Fitch stock jumped about 22% to $172.15 after a record third quarter: $1.4 billion in sales, up 11%, its 16th straight quarter of growth.
+
+    Operating margin hit 15.5%, above guidance, and EPS rose 62% to $3.82. Both Abercrombie (+12%) and Hollister (+11%) grew.
+
+    The 52-week low was $69.68, so the stock is now about 2.5x off that low (our math).
+  short: "Abercrombie just had its 16th straight growth quarter. The stock jumped 22% in a day."
+scenes:
+  - lines: ["Abercrombie stock just jumped *22%* in one day."]
+    visual: {type: bignum, label: "ANF, Nov 24", value: 22, prefix: "+", suffix: "%", tone: good, note: "to $172.15"}
+  - lines: ["Yes. *That* Abercrombie. The mall brand from 2005."]
+    visual: {type: statement, items: [{text: "ABERCROMBIE", size: 130, anim: pop}, {text: "& FITCH", size: 90, tone: mut, at: "+0.6"}]}
+  - lines: [{show: "Record quarter: *$1.4 billion* in sales, up 11%.", say: "Record quarter. One point four billion in sales, up eleven percent."}]
+    visual: {type: bignum, label: "Q3 net sales", value: 1.4, prefix: "$", suffix: "B", decimals: 1, tone: good, note: "+11% year over year"}
+  - lines: ["Its *16th* growth quarter in a row."]
+    visual: {type: bignum, label: "Straight quarters of growth", value: 16, tone: good, note: "since 2022"}
+  - lines: [{show: "Both brands grew: Abercrombie *+12%*, Hollister *+11%*.", say: "Both brands grew. Abercrombie up twelve percent. Hollister up eleven."}]
+    visual: {type: bars, label: "Q3 sales growth", items: [{name: "Abercrombie", value: 12, display: "+12%", tone: good, at: 0}, {name: "Hollister", value: 11, display: "+11%", tone: good, at: 0}]}
+  - lines: [{show: "The stock's 52-week low? *$69.68*. Now about *2.5x* that.", say: "The stock's fifty-two week low? Sixty-nine sixty-eight. Now it's about two and a half times that."}]
+    visual: {type: bars, label: "Share price", items: [{name: "52-wk low", value: 69.68, display: "$69.68", tone: mut, at: 0}, {name: "Nov 24", value: 172.15, display: "$172.15", tone: good, at: 1}]}
+  - lines: ["Follow for more quiet business breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}

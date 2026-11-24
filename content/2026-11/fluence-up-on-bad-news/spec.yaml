@@ -1,0 +1,28 @@
+slug: fluence-up-on-bad-news
+theme: dark
+music: tense
+publish: "2026-11-24 21:30 America/New_York"
+title: "Revenue Fell 30%. The Stock Jumped 21%. Here's Why."
+source: "Source: Fluence Energy Q4 FY2026 results (Nov 24, 2026), GuruFocus · Not financial advice"
+hashtags: [Fluence, EnergyStorage, Batteries, StockMarket, Investing, Business]
+cover: {line1: "-30% SALES", line2: "+21% STOCK", line3: "Fluence Energy", tone: bad}
+caption:
+  long: |
+    Fluence Energy, which builds battery storage systems for power grids, reported revenue down 30% to $700 million and a $137.8 million net loss, after a profit a year earlier.
+
+    The stock still jumped 21%. The reason: more than $6.2 billion in new orders. Markets price what's coming, not just what just happened.
+  short: "Sales fell 30%. The stock jumped 21%. One number explains it."
+scenes:
+  - lines: ["This company's revenue just fell *30%*.", "And the stock jumped *21%*."]
+    visual: {type: statement, items: [{text: "~SALES –30%~", size: 120, tone: bad, anim: up}, {text: "*STOCK +21%*", size: 140, at: 1}]}
+  - lines: ["Fluence Energy builds giant batteries for power grids."]
+    visual: {type: title, kicker: "Meet", text: "FLUENCE", size: 190, underline: true, sub: "grid-scale battery storage"}
+  - lines: [{show: "Last quarter: *$700 million* in revenue, down 30%.", say: "Last quarter, seven hundred million in revenue, down thirty percent."},
+            {show: "And a *$137.8 million* loss, after a profit a year ago.", say: "And a hundred thirty-seven million dollar loss, after a profit a year ago."}]
+    visual: {type: bars, label: "Net income", items: [{name: "Year ago", value: 24.1, display: "+$24.1M", tone: good, at: 0}, {name: "This quarter", value: -137.8, display: "–$137.8M", tone: bad, at: 1}]}
+  - lines: [{show: "So why buy? *$6.2 billion* in new orders.", say: "So why buy? Six point two billion dollars in new orders."}]
+    visual: {type: bignum, label: "New orders", value: 6.2, prefix: "$", suffix: "B+", decimals: 1, tone: good, note: "fiscal 2026"}
+  - lines: ["Markets price what's *coming*, not just what happened."]
+    visual: {type: statement, items: [{text: "Past quarter", size: 100, tone: mut, strike: true, strike_at: "+0.8"}, {text: "Future orders", size: 130, tone: good, at: "+1.2"}]}
+  - lines: ["Follow for more quiet business breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}
