@@ -1,0 +1,13 @@
+kicker: "Adobe holiday forecast 2026 · U.S. online"
+title: "The 3 biggest <em>shopping days</em>"
+sub: "Forecast U.S. online spending per day"
+col1: "Day"
+col3: "Spend"
+rows:
+  - {name: "Cyber Monday", note: "Dec 1 · electronics", value: 15.1, display: "$15.1B"}
+  - {name: "Black Friday", note: "Nov 27 · TVs, toys, apparel", value: 12.9, display: "$12.9B"}
+  - {name: "Thanksgiving", note: "Nov 26", value: 6.9, display: "$6.9B", tone: mut}
+stats:
+  - {value: "$275.1B", label: "whole season online (+6.7%)"}
+  - {value: "$21.3B", label: "paid with buy now, pay later"}
+source: "Source: Adobe Digital Insights 2026 Holiday Forecast · Not financial advice"

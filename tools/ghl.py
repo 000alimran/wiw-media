@@ -43,7 +43,7 @@ def folder(name, parent=None):
 
 def upload(path, name, parent):
     with open(path, "rb") as fh:
-        r = req("POST", "/medias/upload-file", files={"file": (name, fh, "video/mp4" if name.endswith(".mp4") else "image/jpeg")}, data={"name": name, "parentId": parent})
+        r = req("POST", "/medias/upload-file", files={"file": (name, fh, "video/mp4" if name.endswith(".mp4") else ("image/png" if name.endswith(".png") else "image/jpeg"))}, data={"name": name, "parentId": parent})
     fid = r.get("fileId") or r.get("_id")
     for _ in range(60):  # wait for HighLevel to finish encoding the video
         hit = [f for f in files(type="file", query=name.rsplit(".", 1)[0]) if f.get("_id") == fid]  # GHL may rename to "name (2).mp4"
@@ -69,6 +69,16 @@ def post_body(platform, spec, media, sched):
     short = f"{cap.get('short', cap['long']).strip()}\n\n{' '.join('#' + h for h in spec.get('hashtags', [])[:4])}".strip()
     b = {"accountIds": [CFG["accounts"][platform]], "userId": CFG["user_id"], "media": [media],
          "status": "scheduled" if sched else "published", **({"scheduleDate": sched} if sched else {})}
+    if spec.get("kind") == "image":  # photo post (infographic)
+        b.update(type="post", summary=short if platform in ("facebook", "tiktok") else long_)
+        if platform == "instagram":
+            b["instagramPostDetails"] = {"type": "post", "showOnFeed": True}
+        if platform == "facebook":
+            b["facebookPostDetails"] = {"type": "post"}
+        if platform == "tiktok":
+            b["tiktokPostDetails"] = {"privacyLevel": "PUBLIC_TO_EVERYONE", "enableComment": True, "promoteOtherBrand": False,
+                                      "promoteYourBrand": False, "videoDisclosure": False, "autoAddMusic": True, "photoTitle": spec["title"][:90]}
+        return b
     if platform == "youtube":
         b.update(type="post", summary=long_ + " #Shorts", youtubePostDetails={"type": "short", "title": spec["title"][:100], "privacyLevel": "public"})
     elif platform == "instagram":
@@ -92,9 +102,13 @@ def publish(folder_path):
     month = dt.date.fromisoformat(fp.parent.name + "-01").strftime("%B %Y")
     parent = folder(month, folder(CFG["media_root_folder"]))
     slug = spec.get("slug", fp.name)
-    vid = upload(fp / "video.mp4", f"{slug}.mp4", parent)
-    cov = upload(fp / "cover.jpg", f"{slug}-cover.jpg", parent)
-    media = {"url": vid["url"], "type": "video/mp4", "thumbnail": cov["url"]}
+    if spec.get("kind") == "image":
+        vid = upload(fp / "image.jpg", f"{slug}.jpg", parent); cov = vid
+        media = {"url": vid["url"], "type": "image/jpeg"}
+    else:
+        vid = upload(fp / "video.mp4", f"{slug}.mp4", parent)
+        cov = upload(fp / "cover.jpg", f"{slug}-cover.jpg", parent)
+        media = {"url": vid["url"], "type": "video/mp4", "thumbnail": cov["url"]}
     sched = when(spec)
     posts = {}
     for pl in spec.get("platforms", CFG["default_platforms"]):
@@ -103,7 +117,7 @@ def publish(folder_path):
         posts[pl] = p.get("parentPostId") or p.get("_id")
         print(f"  {pl}: {'scheduled ' + sched if sched else 'publishing now'}")
     state = {"slug": slug, "created": dt.datetime.utcnow().isoformat() + "Z", "schedule": sched,
-             "media": [vid["_id"], cov["_id"]], "posts": posts, "cleaned": False}
+             "media": sorted({vid["_id"], cov["_id"]}), "posts": posts, "cleaned": False}
     state_f.write_text(json.dumps(state, indent=1))
     print("published", slug)
 

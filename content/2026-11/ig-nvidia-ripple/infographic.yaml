@@ -1,0 +1,13 @@
+kicker: "Nov 23, 2026 · one trading day"
+title: "When Nvidia jumps, <em>its suppliers</em> fly"
+sub: "After the CEO news, the whole chip chain moved"
+col1: "Company"
+col3: "Move"
+rows:
+  - {name: "Nvidia", note: "Biggest day in 23 years", value: 31.5, display: "+31.5%"}
+  - {name: "TSMC", note: "Makes Nvidia's chips · nearly 10%", value: 10, display: "+10%"}
+  - {name: "Foxconn", note: "Builds the servers · nearly 10%", value: 10, display: "+10%"}
+stats:
+  - {value: "~$1T", label: "Nvidia value restored in a day"}
+  - {value: "23 yrs", label: "since a bigger Nvidia day"}
+source: "Source: Share Talk market wrap (Nov 24, 2026) · Not financial advice"

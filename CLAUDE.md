@@ -57,3 +57,9 @@ Visual types:
 - `checklist`: title, items[str], at
 - `cta`: kicker, text, handle
 Tones: good, bad, mut, ink. Example: `examples/anthropic-104b-catch/spec.yaml`.
+
+## Infographic (photo) posts
+Folder with `infographic.yaml` (kicker, title with <em>, sub, col1, col3, rows[{name,note,value,display,tone}], stats[{value,label}], source)
+→ `python tools/infographic.py <folder>` renders `image.jpg` (1080x1350, WIW brand). Add `spec.yaml` with `kind: image`,
+`publish`, `platforms: [instagram, facebook, tiktok, linkedin]` (no YouTube for photos), `title`, `hashtags`, `caption{long,short}`.
+Commit image.jpg; the workflow skips voice/render and posts the photo.

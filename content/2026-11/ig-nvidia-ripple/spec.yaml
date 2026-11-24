@@ -1,0 +1,14 @@
+slug: ig-nvidia-ripple
+kind: image
+publish: "2026-11-25 15:00 America/New_York"
+platforms: [instagram, facebook, tiktok, linkedin]
+title: "When Nvidia jumps, its suppliers fly"
+hashtags: [Nvidia, TSMC, Semiconductors, AI, StockMarket, Investing]
+caption:
+  long: |
+    Nvidia rose 31.5% in one day, its biggest gain in 23 years, restoring about $1 trillion in value.
+
+    Its supply chain moved with it: TSMC, which makes Nvidia's chips, and Foxconn, which builds the servers, both rose nearly 10%.
+
+    In AI, one company's day is a whole industry's day.
+  short: "Nvidia +31.5% in a day. Its suppliers came along for the ride."

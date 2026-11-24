@@ -1,0 +1,13 @@
+kicker: "IPO record book · base deal size"
+title: "The 6 biggest <em>IPOs</em> ever"
+sub: "The top three all listed in 2026."
+col1: "Company (year)"
+col3: "Raised"
+rows:
+  - {name: "Anthropic", note: "2026 · Nasdaq", value: 81.3, display: "$81.3B"}
+  - {name: "SpaceX", note: "2026 · Nasdaq", value: 75.0, display: "$75.0B"}
+  - {name: "SK hynix", note: "2026 · Nasdaq", value: 26.5, display: "$26.5B", tone: mut}
+  - {name: "Saudi Aramco", note: "2019 · Tadawul", value: 25.6, display: "$25.6B", tone: mut}
+  - {name: "Alibaba", note: "2014 · NYSE", value: 21.8, display: "$21.8B", tone: mut}
+  - {name: "SoftBank Corp", note: "2018 · Tokyo", value: 21.3, display: "$21.3B", tone: mut}
+source: "Source: Renaissance Capital; SoftBank: AFP · excludes over-allotment · Not financial advice"

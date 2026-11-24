@@ -47,6 +47,9 @@ jobs:
         run: |
           for d in ${{ steps.find.outputs.list }}; do
             echo "::group::$d"
+            if grep -q '^kind: image' "$d/spec.yaml"; then
+              [ -n "$GHL_TOKEN" ] && python tools/ghl.py publish "$d"; echo "::endgroup::"; continue
+            fi
             if [ ! -f "$d/voice.mp3" ]; then
               if [ -n "$ELEVENLABS_API_KEY" ]; then python tools/voice.py "$d" --tts || { echo "voice skipped"; continue; }; else python tools/voice.py "$d"; echo "no voice.mp3 yet - skipped"; continue; fi
             fi

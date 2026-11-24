@@ -1,0 +1,14 @@
+kicker: "Walmart Q3 FY2027 · growth vs last year"
+title: "Walmart's growth isn't in the <em>aisles</em>"
+sub: "Which parts of Walmart grew fastest"
+col1: "Business"
+col3: "Growth"
+rows:
+  - {name: "U.S. ads", note: "Walmart Connect", value: 37, display: "+37%"}
+  - {name: "U.S. online", note: "11th quarter above 20%", value: 23, display: "+23%"}
+  - {name: "Membership fees", note: "Walmart+ and Sam's Club", value: 17, display: "+17%"}
+  - {name: "Total revenue", note: "the whole company", value: 5.2, display: "+5.2%", tone: mut}
+stats:
+  - {value: "$188.8B", label: "revenue in three months"}
+  - {value: "24%", label: "of sales now online"}
+source: "Source: Walmart Q3 FY2027 results (Nov 19, 2026) · Not financial advice"

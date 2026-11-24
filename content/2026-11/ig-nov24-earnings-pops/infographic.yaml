@@ -1,0 +1,12 @@
+kicker: "Earnings day · Nov 24, 2026"
+title: "Beat the numbers, <em>pop</em> the stock"
+sub: "Biggest one-day moves after results"
+col1: "Company"
+col3: "Move"
+rows:
+  - {name: "Abercrombie", note: "16th straight growth quarter", value: 22.6, display: "+22.6%"}
+  - {name: "Fluence Energy", note: "Sales –30%, orders $6.2B+", value: 21, display: "+21%"}
+  - {name: "Amentum", note: "Q4 beat + $500M buyback", value: 16, display: "+16%"}
+  - {name: "Dick's Sporting", note: "Q3 beat, raised outlook", value: 14.3, display: "+14.3%"}
+  - {name: "Amgen", note: "New Outperform rating", value: 3.4, display: "+3.4%", tone: mut}
+source: "Sources: Investing.com, GuruFocus, JKN (Nov 24, 2026) · Not financial advice"
