@@ -18,17 +18,18 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - name: Install tools
+        timeout-minutes: 8
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          for i in 1 2 3; do timeout 180 sudo apt-get update -qq && timeout 240 sudo apt-get install -y -qq ffmpeg >/dev/null && break; echo "apt retry $i"; done
           pip install -q playwright pyyaml numpy requests scipy
           python -m playwright install --with-deps chromium >/dev/null
           mkdir -p ~/.fonts && cd ~/.fonts
           B=https://raw.githubusercontent.com/google/fonts/main/ofl
-          curl -sLO "$B/anton/Anton-Regular.ttf"
-          curl -sL -o Inter.ttf "$B/inter/Inter%5Bopsz,wght%5D.ttf"
-          curl -sL -o Gelasio.ttf "$B/gelasio/Gelasio%5Bwght%5D.ttf"
-          curl -sL -o DMSans.ttf "$B/dmsans/DMSans%5Bopsz,wght%5D.ttf"
-          curl -sLO "$B/archivoblack/ArchivoBlack-Regular.ttf"
+          curl --max-time 60 --retry 3 -sLO "$B/anton/Anton-Regular.ttf"
+          curl --max-time 60 --retry 3 -sL -o Inter.ttf "$B/inter/Inter%5Bopsz,wght%5D.ttf"
+          curl --max-time 60 --retry 3 -sL -o Gelasio.ttf "$B/gelasio/Gelasio%5Bwght%5D.ttf"
+          curl --max-time 60 --retry 3 -sL -o DMSans.ttf "$B/dmsans/DMSans%5Bopsz,wght%5D.ttf"
+          curl --max-time 60 --retry 3 -sLO "$B/archivoblack/ArchivoBlack-Regular.ttf"
           fc-cache -f >/dev/null
       - name: Find videos to produce
         id: find
