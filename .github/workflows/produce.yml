@@ -69,4 +69,4 @@ jobs:
         run: |
           git config user.name "wiw-bot"; git config user.email "wiw-bot@users.noreply.github.com"
           git add content/**/state.json content/**/timing.json content/**/script.txt 2>/dev/null || true
-          git diff --cached --quiet || (git commit -m "produce: update state [skip ci]" && git push)
+          git diff --cached --quiet || { git commit -m "produce: update state [skip ci]"; for i in 1 2 3 4 5; do git pull --rebase -q && git push && break; sleep 5; done; }
