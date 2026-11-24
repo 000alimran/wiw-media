@@ -13,3 +13,6 @@ cta:
   youtube:   Subscribe for quiet business breakdowns.
   instagram: Follow @wealthinwhisper for quiet business breakdowns.
   linkedin:  Follow Wealth In Whispers for quiet business breakdowns.
+# Narrator for auto voice (ElevenLabs): Miles - Clear Explainer Narrator (native US, added to My Voices)
+voice_id: wL5XZMjDi4k4GNoG3ZFW
+voice_model: eleven_v4
