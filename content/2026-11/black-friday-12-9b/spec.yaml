@@ -1,0 +1,31 @@
+slug: black-friday-12-9b
+theme: cream
+music: epic
+publish: "2026-11-26 19:15 America/New_York"
+title: "Americans Will Spend $12.9 Billion Online This Black Friday"
+source: "Source: Adobe Digital Insights 2026 Holiday Forecast · Not financial advice"
+hashtags: [BlackFriday, CyberMonday, Shopping, Ecommerce, Money, Deals]
+cover: {line1: "$12.9B", line2: "IN ONE DAY", line3: "Black Friday 2026", tone: good}
+caption:
+  long: |
+    Adobe forecasts $12.9 billion in U.S. online spending this Black Friday, up 9.2%. Cyber Monday is still the biggest day at $15.1 billion, and Thanksgiving adds $6.9 billion.
+
+    Black Friday is growing faster because deals are landing earlier. Adobe expects the best prices on TVs, toys, apparel and appliances on Black Friday, and on electronics and computers on Cyber Monday.
+
+    About $807 million of Black Friday spending is expected to go through buy now, pay later.
+  short: "$12.9 billion online in one day. Here's when the real deals land."
+scenes:
+  - lines: [{show: "Americans will spend *$12.9 billion* online this Black Friday.", say: "Americans will spend twelve point nine billion dollars online this Black Friday."}]
+    visual: {type: bignum, label: "Black Friday online sales", value: 12.9, prefix: "$", suffix: "B", decimals: 1, tone: good, note: "Adobe forecast, U.S."}
+  - lines: ["In one day. Up *9.2%* from last year."]
+    visual: {type: statement, items: [{text: "1 DAY", size: 200, anim: pop}, {text: "*+9.2%* vs 2025", size: 90, at: "+0.8"}]}
+  - lines: [{show: "Thanksgiving: *$6.9B*. Black Friday: *$12.9B*. Cyber Monday: *$15.1B*.", say: "Thanksgiving, six point nine billion. Black Friday, twelve point nine. Cyber Monday, fifteen point one."}]
+    visual: {type: bars, label: "Online spend forecast", items: [{name: "Thanksgiving", value: 6.9, display: "$6.9B", tone: mut, at: "+0.2"}, {name: "Black Friday", value: 12.9, display: "$12.9B", tone: good, at: "+1.6"}, {name: "Cyber Monday", value: 15.1, display: "$15.1B", tone: ink, at: "+3.0"}]}
+  - lines: ["Black Friday is growing faster, because deals land *earlier*."]
+    visual: {type: statement, items: [{text: "Earlier deals", size: 120, anim: up}, {text: "= faster growth", size: 90, tone: mut, at: "+1.2"}]}
+  - lines: ["Best days, per Adobe: TVs, toys and clothes on Black Friday.", "Laptops and electronics on Cyber Monday."]
+    visual: {type: flow, items: [{icon: "📺", title: "Black Friday", sub: "TVs · toys · apparel · appliances", tone: good, at: 0}, {icon: "💻", title: "Cyber Monday", sub: "electronics · computers", at: 1}]}
+  - lines: [{show: "And *$807 million* of it will be buy now, pay later.", say: "And eight hundred and seven million of it will be buy now, pay later."}]
+    visual: {type: bignum, label: "Black Friday BNPL", value: 807, prefix: "$", suffix: "M", tone: bad, note: "Adobe forecast"}
+  - lines: ["Follow for more quiet money breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}

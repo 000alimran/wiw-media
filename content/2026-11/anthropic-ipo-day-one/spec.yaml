@@ -1,0 +1,32 @@
+slug: anthropic-ipo-day-one
+theme: dark
+music: epic
+publish: "2026-11-27 19:15 America/New_York"
+title: "Anthropic Hit $2.1 Trillion on Day One. Then This Happened."
+source: "Sources: Reuters, AP, NPR (Nov 19, 2026) · Not financial advice"
+hashtags: [Anthropic, IPO, Claude, AI, StockMarket, Investing]
+cover: {line1: "$2.1T", line2: "ON DAY ONE", line3: "Anthropic IPO", tone: good}
+caption:
+  long: |
+    Anthropic priced its IPO at $83 a share, the biggest IPO on record. The stock opened at $111.50, up 34%, briefly valuing the company at about $2.1 trillion.
+
+    By the close it was $97.17, still up 17% from the IPO price. First-half 2026 revenue was $16.3 billion, per the prospectus.
+
+    Analysts warned that buying hot IPOs on day one has historically lagged the market over three years.
+  short: "Anthropic opened at $2.1 trillion. Here's where it closed on day one."
+scenes:
+  - lines: [{show: "Anthropic went public, and hit *$2.1 trillion* on day one.", say: "Anthropic went public, and hit two point one trillion dollars on day one."}]
+    visual: {type: bignum, label: "Peak value, Nov 19", value: 2.1, prefix: "$", suffix: "T", decimals: 1, tone: good, note: "biggest IPO on record"}
+  - lines: [{show: "IPO price: *$83*. First trade: *$111.50*.", say: "IPO price, eighty-three dollars. First trade, one eleven fifty."},
+            "A *34%* jump in minutes."]
+    visual: {type: bars, label: "Price per share", items: [{name: "IPO", value: 83, display: "$83", tone: mut, at: 0}, {name: "Open", value: 111.5, display: "$111.50", tone: good, at: 0}]}
+  - lines: [{show: "But by the close: *$97.17*.", say: "But by the close, ninety-seven seventeen."}]
+    visual: {type: bars, label: "Day one", items: [{name: "IPO", value: 83, display: "$83", tone: mut, at: "+0.1"}, {name: "Open", value: 111.5, display: "$111.50", tone: mut, at: "+0.1"}, {name: "Close", value: 97.17, display: "$97.17", tone: bad, at: "+0.6"}]}
+  - lines: ["Still up *17%* for IPO buyers. Not for those who bought the open."]
+    visual: {type: statement, items: [{text: "IPO buyers *+17%*", size: 100, anim: up}, {text: "Open buyers ~–13%~", size: 100, at: "+1.6"}]}
+  - lines: [{show: "First-half revenue: *$16.3 billion*.", say: "First-half revenue, sixteen point three billion dollars."}]
+    visual: {type: bignum, label: "Revenue, H1 2026", value: 16.3, prefix: "$", suffix: "B", decimals: 1, tone: good, note: "per the prospectus"}
+  - lines: ["Analysts' warning: day-one buyers of hot IPOs have often lagged the market."]
+    visual: {type: statement, items: [{text: "Hot IPO, day one", size: 100, tone: mut, anim: up}, {text: "≠ easy money", size: 130, tone: bad, at: "+1.4"}]}
+  - lines: ["Follow for more quiet business breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}

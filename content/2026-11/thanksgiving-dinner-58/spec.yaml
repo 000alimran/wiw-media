@@ -1,0 +1,32 @@
+slug: thanksgiving-dinner-58
+theme: dark
+music: tech
+publish: "2026-11-25 08:15 America/New_York"
+title: "Thanksgiving Dinner Just Got More Expensive. Blame the Turkey."
+source: "Source: American Farm Bureau Federation 2026 survey, AAA · Not financial advice"
+hashtags: [Thanksgiving, Inflation, FoodPrices, Turkey, PersonalFinance, Money]
+cover: {line1: "$58.63", line2: "FOR DINNER", line3: "Thanksgiving 2026", tone: bad}
+caption:
+  long: |
+    The American Farm Bureau's 2026 survey puts a classic Thanksgiving dinner for 10 at $58.63, up 6% from last year and the first increase since 2022.
+
+    The biggest driver is the turkey: a 16-pound bird averages $23.68, up from $21.50. Higher diesel costs make it pricier to move food from farm to table.
+
+    It is still below the 2022 record of $64.05, about $5.86 per person.
+  short: "Thanksgiving dinner for 10 now costs $58.63. The turkey is the reason."
+scenes:
+  - lines: ["Thanksgiving dinner for 10 now costs *$58.63*."]
+    visual: {type: bignum, label: "Dinner for 10, 2026", value: 58.63, prefix: "$", decimals: 2, tone: bad, note: "American Farm Bureau survey"}
+  - lines: ["That's up *6%*, the first increase since 2022."]
+    visual: {type: statement, items: [{text: "+6%", size: 220, tone: bad, anim: pop}, {text: "first rise since 2022", size: 70, tone: mut, at: "+1.0"}]}
+  - lines: ["The main reason? The turkey.",
+            {show: "A 16-pound bird: *$23.68*, up from $21.50.", say: "A sixteen-pound bird now costs twenty-three sixty-eight, up from twenty-one fifty."}]
+    visual: {type: bars, label: "16-lb frozen turkey", items: [{name: "2025", value: 21.50, display: "$21.50", tone: mut, at: 0}, {name: "2026", value: 23.68, display: "$23.68", tone: bad, at: 1}]}
+  - lines: [{show: "Moving food got pricier too: diesel is up *58%* in a year.", say: "Moving food got pricier too. Diesel is up fifty-eight percent in a year."}]
+    visual: {type: bignum, label: "U.S. diesel, year over year", value: 58, prefix: "+", suffix: "%", tone: bad, note: "AAA, mid-November"}
+  - lines: [{show: "Still, it's below the 2022 record of *$64.05*.", say: "Still, it's below the twenty twenty-two record of sixty-four dollars and five cents."}]
+    visual: {type: bars, label: "Dinner for 10", items: [{name: "2022", value: 64.05, display: "$64.05", tone: mut, at: "+0.2"}, {name: "2025", value: 55.18, display: "$55.18", tone: mut, at: "+0.6"}, {name: "2026", value: 58.63, display: "$58.63", tone: bad, at: "+1.0"}]}
+  - lines: [{show: "Per person, that's about *$5.86*.", say: "Per person, that's about five eighty-six."}]
+    visual: {type: bignum, label: "Per guest", value: 5.86, prefix: "$", decimals: 2, tone: good, note: "$58.63 ÷ 10"}
+  - lines: ["Follow for more quiet money breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}

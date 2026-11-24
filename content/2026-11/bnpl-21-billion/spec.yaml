@@ -1,0 +1,31 @@
+slug: bnpl-21-billion
+theme: violet
+music: tense
+publish: "2026-11-27 12:15 America/New_York"
+title: "$21.3 Billion of Holiday Gifts Haven't Been Paid For Yet"
+source: "Source: Adobe Digital Insights 2026 Holiday Forecast · Not financial advice"
+hashtags: [BuyNowPayLater, BNPL, BlackFriday, PersonalFinance, Debt, Money]
+cover: {line1: "$21.3B", line2: "NOT PAID YET", line3: "BNPL, holiday 2026", tone: bad}
+caption:
+  long: |
+    Adobe expects a record $21.3 billion in buy now, pay later spending this holiday season, $1.3 billion more than last year.
+
+    Last Cyber Monday, BNPL passed $1 billion in a single day for the first time. About 82% of BNPL spending happens on a phone.
+
+    Split payments feel small. Add up every plan before you tap.
+  short: "A record $21.3B in buy now, pay later this season. Add it up before you tap."
+scenes:
+  - lines: [{show: "This season, Americans will buy *$21.3 billion* of stuff they haven't paid for yet.", say: "This season, Americans will buy twenty-one point three billion dollars of stuff they haven't paid for yet."}]
+    visual: {type: bignum, label: "Holiday BNPL spending", value: 21.3, prefix: "$", suffix: "B", decimals: 1, tone: bad, note: "Adobe forecast, Nov–Dec"}
+  - lines: ["Buy now, pay later. A new *record*."]
+    visual: {type: statement, items: [{text: "BUY NOW", size: 150, anim: up}, {text: "~PAY LATER~", size: 150, tone: bad, at: "+0.8"}]}
+  - lines: [{show: "That's *$1.3 billion* more than last year.", say: "That's one point three billion more than last year."}]
+    visual: {type: bars, label: "Holiday BNPL", items: [{name: "2025", value: 20.0, display: "$20.0B", tone: mut, at: "+0.2"}, {name: "2026", value: 21.3, display: "$21.3B", tone: bad, at: "+1.0"}]}
+  - lines: [{show: "Last Cyber Monday, it passed *$1 billion* in a single day.", say: "Last Cyber Monday, it passed one billion dollars in a single day."}]
+    visual: {type: bignum, label: "BNPL, Cyber Monday 2025", value: 1, prefix: "$", suffix: "B+", tone: bad, note: "first $1B day"}
+  - lines: ["And *82%* of it happens on a phone."]
+    visual: {type: gauge, label: "BNPL spend on mobile", from: 0, to: 82, suffix: "%", note: "vs desktop"}
+  - lines: ["Small payments add up. Check the *total* before you tap."]
+    visual: {type: checklist, title: "Before you tap", items: ["How many plans are open?", "Total due next month?", "Late fees?"], at: 0}
+  - lines: ["Follow for more quiet money breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}

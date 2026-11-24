@@ -1,0 +1,27 @@
+slug: walmart-ads-37
+theme: cream
+music: tech
+publish: "2026-11-28 12:15 America/New_York"
+title: "Walmart's Fastest-Growing Business Isn't Groceries. It's Ads."
+source: "Source: Walmart Q3 FY2027 results (Nov 19, 2026) · Not financial advice"
+hashtags: [Walmart, RetailMedia, Advertising, Ecommerce, Business, Investing]
+cover: {line1: "+37%", line2: "WALMART ADS", line3: "Q3 FY2027", tone: good}
+caption:
+  long: |
+    Walmart made $188.8 billion in revenue last quarter, up 5.2%. But the fastest growth was elsewhere: U.S. advertising up 37%, U.S. e-commerce up 23%, membership fees up 17%.
+
+    Online is now about 24% of Walmart's sales. Brands pay to show up where millions of shoppers already search and buy.
+  short: "Walmart's U.S. ad business grew 37%. Groceries grew a lot slower."
+scenes:
+  - lines: ["Walmart's fastest-growing business isn't groceries.", "It's *ads*."]
+    visual: {type: title, kicker: "Walmart, Q3", text: "ADS +37%", size: 190, underline: true}
+  - lines: [{show: "Total revenue: *$188.8 billion* in three months.", say: "Total revenue, one hundred eighty-eight point eight billion dollars in three months."}]
+    visual: {type: bignum, label: "Q3 revenue", value: 188.8, prefix: "$", suffix: "B", decimals: 1, tone: ink, note: "up 5.2%"}
+  - lines: [{show: "Revenue *+5%*. Memberships *+17%*. Online *+23%*. U.S. ads *+37%*.", say: "Revenue up five percent. Memberships up seventeen. Online up twenty-three. U.S. ads up thirty-seven."}]
+    visual: {type: bars, label: "Growth vs last year", items: [{name: "Revenue", value: 5.2, display: "+5.2%", tone: mut, at: "+0.2"}, {name: "Memberships", value: 17, display: "+17%", tone: mut, at: "+1.2"}, {name: "U.S. online", value: 23, display: "+23%", tone: good, at: "+2.2"}, {name: "U.S. ads", value: 37, display: "+37%", tone: good, at: "+3.2"}]}
+  - lines: ["Online is now about *a quarter* of all sales."]
+    visual: {type: split, label: "Share of net sales", parts: [{value: 24, display: "24%", name: "Online", tone: good}, {value: 76, display: "76%", name: "Everything else", tone: mut, hatch: true}]}
+  - lines: ["Why ads? Millions already search and buy there.", "So brands pay to show up *first*."]
+    visual: {type: flow, items: [{icon: "🔎", title: "Shopper searches", sub: "on Walmart.com", at: 0}, {icon: "📣", title: "Brand pays", sub: "to appear first", tone: good, at: 1}]}
+  - lines: ["Follow for more quiet business breakdowns."]
+    visual: {type: cta, kicker: "Business breakdowns", text: "Follow for more"}
