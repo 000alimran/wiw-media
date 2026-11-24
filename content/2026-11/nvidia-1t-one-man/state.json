@@ -13,5 +13,6 @@
   "tiktok": null,
   "linkedin": null
  },
- "cleaned": false
+ "cleaned": false,
+ "post_status": {}
 }
