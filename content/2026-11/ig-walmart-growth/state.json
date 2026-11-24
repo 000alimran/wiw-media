@@ -1,0 +1,15 @@
+{
+ "slug": "ig-walmart-growth",
+ "created": "2026-11-24T20:39:51.755402Z",
+ "schedule": "2026-11-26T20:00:00Z",
+ "media": [
+  "6b05f6168b5100b36ae0edc2"
+ ],
+ "posts": {
+  "instagram": "e0398b45-692d-42b4-9d73-6bbe324eb249",
+  "facebook": "d5b4a52d-a1b4-4db3-8da8-a66c1c353c41",
+  "tiktok": "897824af-99a6-4df9-8eec-06eef4f68da3",
+  "linkedin": "6a58f98f-ad73-4a35-959d-1b67042b0a14"
+ },
+ "cleaned": false
+}
